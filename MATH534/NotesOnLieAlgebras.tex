@@ -147,6 +147,14 @@
     \end{definition}
 
     \begin{definition}
+        A Lie algebra is called solveable when \textcolor{red}{TODO}
+    \end{definition}
+
+    \begin{definition}
+        The radical of a lie algebra is \textcolor{red}{TODO}
+    \end{definition}
+
+    \begin{definition}
         The normalizer \(N_\mathfrak{g}(\mathfrak{h})\) of a subalgebra \(\mathfrak{h}\) of a Lie algebra \(\mathfrak{g}\) is \textcolor{red}{TODO}
     \end{definition}
 
@@ -405,39 +413,59 @@
             Show that \(\operatorname{Inn}(\mathfrak{g}) \subset \operatorname{Der}(\mathfrak{g})\) is an ideal
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                Just compute
+                \begin{align}
+                    [\operatorname{ad}_\xi,D](\eta) &= [x,D(\xi)] - D([x,\xi])\\
+                    &= [x,D(\xi)] - [x,D(\xi)] - [D(x),\xi] \\
+                    &= \operatorname{ad}_{-D(x)}(\xi)
+                \end{align}
             \end{proof}
         \end{pb}
         \begin{pb}
             Show that \(\mathfrak{sl}(n) = [\mathfrak{gl}(n),\mathfrak{gl}(n)]\)
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                We have shown in Humphreys 1.9 that \(\mathfrak{sl}\) is its own derived subalgebra, thus \(\mathfrak{sl} \subset [\mathfrak{gl},\mathfrak{gl}]\). Now notice by symmetry and bilinearity of trace, \(\operatorname{tr}([\xi,\eta]) = 0\) for any \(\xi,\eta\). Thus \([\mathfrak{gl},\mathfrak{gl}] \subset \mathfrak{sl}\).
             \end{proof}
         \end{pb}
         \begin{pb}
-            Show the center of \(\mathfrak{gl}(n)\) is diagonal matrices, show the center of \(\mathfrak{sl}(n)\) is trivial, but in characteristic \(p\vert n\) is diagonal matrices.
+            Show the center of \(\mathfrak{gl}(n)\) is scalar matrices, show the center of \(\mathfrak{sl}(n)\) is trivial, but in characteristic \(p\vert n\) is scalar matrices.
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                Suppose that \(\xi \in \mathfrak{z}(\mathfrak{\mathfrak{gl}})\), then
+                \begin{align}
+                    0 = [\xi,e_{ij}] = \sum_k \xi_{ki} e_{kj} - \xi_{jk}e_{ik}
+                \end{align}
             \end{proof}
+            We read from this equation that \(\xi\) is diagonal. Then \(\xi = \lambda^k e_{kk}\) so that
+            \begin{align}
+                0 = [\lambda^k e_{kk},e_{ij}] = \lambda_i e_{ij} - \lambda_j e_{ij} \implies \lambda_i = \lambda_j \label{diagonalmult}
+            \end{align}
+            so that \(\xi\) is a scalar.
         \end{pb}
         \begin{pb}
             Show there is a unique isomorphism class of lie algebra \(\mathfrak{g}\) with dimension 3 and \(\mathfrak{g}' = [\mathfrak{g},\mathfrak{g}] \subset \mathfrak{z}(\mathfrak{g})\), and \(\dim \mathfrak{g}' = 1\).
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                Since the derived subalgebra is one dimensional, there must be two elements \(x,y\) with \([x,y] = \mathfrak{g}'\). Then \(\set{x,y,[x,y]}\) is a basis and the structure constants are fixed by \([x,y] = \mathfrak{z}\).
             \end{proof}
         \end{pb}
         \begin{pb}
             Show that \(\dim \mathfrak{g} = 3\) and \(\mathfrak{g}' = \mathfrak{g}\) implies \(\mathfrak{g}\) is simple.
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                Assume that \(\mathfrak{g}\) is not simple, then a nontrivial ideal implies a homomorphism \(\phi: \mathfrak{g} \to L\) for \(\dim L = 1,2\). If \(\dim L = 1\) then \(\phi(\mathfrak{g})\) is abelian, thus \(0 = \phi(\mathfrak{g}') = \phi(\mathfrak{g})\) a contradiction. If \(\dim L = 2\), then \(L \cong \operatorname{span}\set{x,y}\) with \([x,y] = x\), thus \(\operatorname{span}\set{x} = \phi(\mathfrak{g}') = \phi(\mathfrak{g}) = \operatorname{span}\set{x,y}\) a contradiction.
             \end{proof}
         \end{pb}
         \begin{pb}
             Show \(\mathfrak{sl}(3)\) is simple unless characteristic \(k = 3\).
+            \begin{proof}
+                We work with the basis 
+                \begin{align}
+                    h_1,h_2,e_1,e_2,f_1,f_2,[e_1,e_2],[f_1,f_2]
+                \end{align}
+                Since \(\mathfrak{sl}(2)\) has no ideals, any ideal must contain a copy of either \(\mathfrak{sl}(2)\) and thus also the bracket terms. But then \([e_{21},e_{13}] = e_{23}\) so any ideal containing the first copy of \(\mathfrak{sl}\) must contain and element of the second and we are done, conclude by symmetry.
+            \end{proof}
         \end{pb}
         \begin{pb}
             Show that strictly upper triangular and diagonal matrices are self normalizing in \(\mathfrak{gl}\), show that upper triangular matrices are normalized by strictly upper triangular matrices.
@@ -447,14 +475,27 @@
             \end{proof}
         \end{pb}
         \begin{pb}
-            If \(k\) is a field of characteristic zero then the diagonal matrices are self normalizing subsets of the classical lie algebras.
+            If \(k\) is a field of characteristic zero then the diagonal matrices are self normalizing subalgebras of the classical lie algebras.
 
             \begin{proof}
-                \textcolor{red}{TODO}
+                The fact they are subalgebras is obvious. To see that they are self normalizing we use that for every non diagonal entry, there is a matrix in each classical lie algebra having it nonzero. Now supposing that \(\xi_{ii} \neq \xi_{jj}\) for \(\xi\) diagonal (we can always do this since \(\operatorname{tr}(\xi) \neq 0\)), the equation \eqref{diagonalmult} gives bracketing this matrix with \(\xi\) gives a matrix with nonzero off diagonal coordinates.
             \end{proof}
         \end{pb}
         \begin{pb}
-            \textcolor{red}{TODO}
+            Prove the isomorphism theorems
+            \begin{proof}
+                \begin{enumerate}
+                    \item It is clear that \(\bar{\phi}\) must satisfy \(\bar{\phi}(x + \ker) = \phi(x)\), so it suffices to check that such a map is a lie algebra homomorphism.
+                    \begin{align}
+                        &\bar{\phi}[x+\ker,y+\ker] = \bar{\phi}([x,y] + [\ker,y] + [x,\ker] + [\ker,\ker]) = \bar{\phi}([x,y] + \ker) = \phi[x,y] \\
+                        &[\bar{\phi}(x + \ker),\bar{\phi}(y + \ker)] = [\phi(x),\phi(y)] = \phi([x,y])
+                    \end{align}
+                    injectivity and surjectivity are immediate.
+
+                    \item Take the map \(\phi: \mathfrak{g}/\mathfrak{k} \to \mathfrak{g}/\mathfrak{h}\) via \(x + \mathfrak{k} \mapsto x + \mathfrak{h}\) this is a well defined homomorphism with kernel \(\mathfrak{h}/\mathfrak{k}\). Apply the first isomorphism theorem.
+                    \item Theres nothing new in the third theorem either...
+                \end{enumerate}
+            \end{proof}
         \end{pb}
         \begin{pb}
             for \(g \in GL(n)\) consider \(\mathfrak{sl}(n) \to \mathfrak{sl}(n)\) via \(x \mapsto -gx^tg^{-1}\), show this is an automorphism of \(\mathfrak{sl}(n)\). When \(n=2\) and \(g = 1\) show this is an inner automorphism.

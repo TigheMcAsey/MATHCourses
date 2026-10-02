@@ -1,0 +1,105 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[includeheadfoot]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+
+\fancyhf{}
+\lhead{Lie Algebras Notes}
+\rhead{Tighe McAsey}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper, margin=1in}
+
+\theoremstyle{definition}
+\newtheorem{pb}{}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\numberwithin{proposition}{subsection}
+\numberwithin{pb}{subsection}
+\usepackage{tikz-cd, stackengine}
+
+% Commands:
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\gen}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\pd}{\frac{\partial}{\partial x_j}}
+\newcommand{\px}{\frac{\partial}{\partial x}}
+\newcommand{\py}{\frac{\partial}{\partial y}}
+\newcommand{\pz}{\frac{\partial}{\partial z}}
+\newcommand{\ppx}{\frac{\partial^2}{\partial x^2}}
+\newcommand{\ppy}{\frac{\partial^2}{\partial y^2}}
+\newcommand{\ppz}{\frac{\partial^2}{\partial z^2}}
+\newcommand{\hess}{\operatorname{Hess}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\spl}{\operatorname{\mathfrak{sl}}}
+\newcommand{\spg}{\mathfrak{g}}
+\newcommand{\sph}{\mathfrak{h}}
+\newcommand{\spu}{\operatorname{\mathfrak{su}}}
+\newcommand{\spo}{\operatorname{\mathfrak{so}}}
+
+\begin{document}
+    \section{Heegaard Diagrams of 3-Manifolds}
+
+    \begin{example}[\(\mathbf{L(p,q) := S^3/[(w,z) \sim (\xi_p w, \xi_p^q z)]}\)]
+
+        Consider the standard Heegaard decomposition of \(S^3\) given by 
+        \begin{align}
+            S^3 = \underbrace{\set{\abs{z} \geq \abs{w}}}_{h^1} \cup_{\underbrace{\abs{z} = \abs{w}}_{\mathbb{T}^2}} \underbrace{\set{\abs{w} \geq \abs{z}}}_{h^2}
+        \end{align}
+        Then the action of \(\mathbb{Z}/(p)\) which I will denote by \(f\) preserves the handlebodies in this decomposition alongside the torus \(\abs{z} = \abs{w}\). This gives us
+        \begin{align}
+            L(p,q) = h^1/f \cup_{\mathbb{T}^2/f} h^2/f \label{quot}
+        \end{align}
+        This is useless unless we can describe what these sets look like, notice that if we can describe \(\mathbb{T}^2/f\), then we have also described the handlebodies, since these can be expressed as \(\mathbb{T}^2/f \times I\). Computing for \(\mathbb{T}^2\):
+        \begin{align}
+            \mathbb{T}^2/f = \frac{\mathbb{T}^2}{(x,y) \sim \left(x + \frac{1}{p},y+\frac{q}{p}\right)} = \frac{\mathbb{R}^2/(\mathbb{Z}^2)}{(\frac{1}{p},\frac{q}{p})\mathbb{Z}} = \frac{\mathbb{R}^2}{(0,1)\mathbb{Z} \oplus (\frac{1}{p},\frac{q}{p})\mathbb{Z}} \cong \mathbb{T}^2 \label{torusbasis}
+        \end{align}
+        Thus equation \eqref{quot} also specifies a Heegaard Decomposition. Using the basis computed in equation \eqref{torusbasis} we take the corresponding generators for \(H_1(\partial h^j)\). Now \((0,1)\mathbb{Z}\) is the meridian for \(h^1\) and thus also \(h^1/f\), same for \((1,0)\) as the meridian of \(h^2, h^2/f\), The meridian of \(h^2\) is thus glued to \(p(1/p,q/p) - q(0,1)\). This gives the heegaard decomposition
+        on \(\mathbb{T}^2\) as the curves given by \((\alpha, p\beta - q\alpha)\), where \(\alpha,\beta \in H^1(\mathbb{T}^2)\) are the homology basis of the quotient computed in equation \eqref{torusbasis}.
+    \end{example}
+
+    \begin{example}[\(\mathbb{T}^3\) with the flat metric]
+        Model \(\mathbb{T}^3\) as \([0,2\pi)^3\), then consider
+        \begin{align}
+            f(x) = \sum_1^3 \frac12 \cos(x^j) + \frac32
+        \end{align}
+        I claim that this is a self-indexing morse function, checking this
+        \begin{align}
+            -\nabla f = \frac12 \sin(x^j)dx_j \implies (-\nabla f)^{-1}(0) = \set{(s,t,r) \mid s,t,r \in \set{0,\pi}}
+        \end{align}
+        And at such points we have
+        \begin{align}
+            \operatorname{Hess}(f) = \frac12 \operatorname{Diag}(-\cos(x^j))
+        \end{align}
+        This verifies \(f\) is morse, to see its self indexing note that the index is the number of occurences of \(0\) in the critical point vector.
+
+        Now we solve for a gradient flow of \(f\), from the above computations
+        \begin{align}
+            \dot{x}^j = \frac12 \sin(x^j)
+        \end{align}
+        We can apply seperation of variables to \(y'/\sin y = \frac12\) this gives us \(\int \frac{1}{\sin(x^j)} dx^j = \frac{t}{2} + C\) integrating gives us
+        \begin{align}
+            \log(\tan(x^j/2)) = \frac{t}{2} + C
+        \end{align}
+        and thus
+        \begin{align}
+            x^j = 2\arctan(C e^{t/2})
+        \end{align}
+        Using the initial condition \(x^j(0), C = \tan(x^j(0)/2)\) so that
+        \begin{align}
+            x^j = 2\arctan(\tan(x^j(0)/2) e^{t/2})
+        \end{align}
+        In order to compute the 
+    \end{example}
+\end{document}
