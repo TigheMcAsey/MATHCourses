@@ -100,6 +100,30 @@
         \begin{align}
             x^j = 2\arctan(\tan(x^j(0)/2) e^{t/2})
         \end{align}
-        In order to compute the 
+        The Heegaard diagram uses the asymptotic information of gradient flows, luckily this is easy to compute:
+        \begin{align}
+            &\lim_{t\to\infty} x^j = \begin{cases}
+                \pi & x^j(0) \neq 0 \\
+                0 & x^j(0) = 0
+            \end{cases} &\lim_{t\to-\infty} x^j = \begin{cases}
+                0 &x^j(0) \neq \pi \\
+                \pi &x^j(0) = \pi
+            \end{cases}
+        \end{align}
+        (We make sense of this by thinking of \(S^1\) as the codomain of \(\tan\) and domain of \(\arctan\))
+        It follows that the stable manifold of the index one critical point \((0,\pi,\pi)\) is given by \(\set{(0,x^2,x^3) \mid x^2,x^3 \neq 0}\). The others are described symmetrically. Similarly we can consider the unstable manifold of the critical point \((\pi,0,0)\) as \(\set{(\pi,x^2,x^3) \mid x^2,x^3 \neq \pi}\), the rest of the cases are symmetric.
+
+        Now, to get the Heegaard decomposition, we study the level set \(f^{-1}(3/2)\), the \(\alpha\) curves are given by
+        \begin{align}
+            &\alpha_1 = \set{(0,x^2,x^3)\mid \cos(x^2) + \cos(x^3) = -1}\\
+            &\alpha_2 = \set{(x^1,0,x^3)\mid \cos(x^1) + \cos(x^3) = -1}\\
+            &\alpha_3 = \set{(x^1,x^2,0)\mid \cos(x^1) + \cos(x^2) = -1}
+        \end{align}
+        And the \(\beta\) curves
+        \begin{align}
+            &\beta_1 = \set{(\pi,x^2,x^3)\mid \cos(x^2) + \cos(x^3) = 1}\\
+            &\beta_2 = \set{(x^1,\pi,x^3)\mid \cos(x^1) + \cos(x^3) = 1}\\
+            &\beta_3 = \set{(x^1,x^2,\pi)\mid \cos(x^1) + \cos(x^2) = 1}
+        \end{align}
     \end{example}
 \end{document}

@@ -192,6 +192,65 @@
             \end{align}
             The Lie bracket is inhereted from \(\operatorname{Der}(\mathfrak{g})\), which is inhereted from \(\mathfrak{gl}(\mathfrak{g})\)
         \end{definition}
+
+    \subsection{Basic Results on Nilpotence and Solveability}
+        \begin{proposition}\label{basicsolveability}
+            \begin{enumerate}
+                \item If \(I \subset \mathfrak{g}\) is a solveable ideal, then \(\mathfrak{g}/I\) is solveable iff \(\mathfrak{g}\) is.
+                \item The sum of solveable ideals is solveable
+            \end{enumerate}
+            \begin{proof}
+                \begin{enumerate}
+                    \item One direction is trivial. In the other direction let \(\pi: \mathfrak{g} \to \mathfrak{g}/I\) be the quotient map. Then \(\pi(\mathfrak{g}^{(n)}) = \pi(\mathfrak{g})^{(n)} = 0\) so that \(\mathfrak{g}^{(n)} \subset I\), this is obviously sufficient.
+                    \item \(I + J/J \cong I/I \cap J\) is solveable, apply part (i).
+                \end{enumerate}
+            \end{proof}
+        \end{proposition}
+        \begin{proposition}\label{basicnilpotence}
+            \begin{enumerate}
+                \item If \(\mathfrak{g}/\mathfrak{z}\) is nilpotent then so is \(\mathfrak{g}\)
+                \item A nonzero nilpotent Lie algebra has nontrivial center
+            \end{enumerate}
+        
+            \begin{proof}
+                \begin{enumerate}
+                    \item Let \(\pi\) be the quotient map, then \(\pi([\mathfrak{g}^n,g]) = [\pi(\mathfrak{g}^n),\pi(g)] = \pi(\mathfrak{g})^{n+1}\) Thus \(\mathfrak{g}^{n+1} \in \mathfrak{z}\). Thus \(\mathfrak{g}^{n+2} = 0\)
+                    \item Suppose \(n\) is the least \(n\) such that \(\mathfrak{g}^n = 0\), then \(n > 0\) and \(\mathfrak{g}^{n-1} \in \mathfrak{z}\).
+                \end{enumerate}
+            \end{proof}
+        \end{proposition}
+
+        \begin{proposition}\label{engelstheoremlemma}
+            A subalgebra \(\mathfrak{g} \subset \mathfrak{gl}(V)\) of nilpotent endomorphisms has a common eigenvector.
+            \begin{proof}
+                Induct on dimension of the lie algebra. \(\dim = 1\) is trivial since \(k\) contains all of the roots of the characteristic polynomial.
+
+                Now let \(\mathfrak{h} \subset \mathfrak{g}\) be a proper subalgebra, \(\mathfrak{h}\) is thus also a nilpotent subalgebra of \(\mathfrak{gl}(V)\). Then we consider the vectorspace \(U = \mathfrak{g}/\mathfrak{h}\), the adjoint representation of \(\mathfrak{h}\) on \(U\) is nilpotent, thus by induction has a common eigenvector. This shows that \(N_\mathfrak{g}(\mathfrak{h}) \supsetneq \mathfrak{h}\).
+
+                Every solveable lie algebra has a codimension \(1\) subalgebra, to see this take \(\pi: \mathfrak{g} \to \mathfrak{g}/\mathfrak{g}'\), then \(\mathfrak{g}/\mathfrak{g}'\) is abelian so we can take a codimension \(1\) subalgebra \(\overline{\mathfrak{h}}\), then \(\mathfrak{h} := \pi^{-1}(\overline{\mathfrak{h}})\) is a codimension \(1\) subalgebra of \(\mathfrak{g}\).
+
+                Combining the preceding two arguments we have \(\mathfrak{h} \subset \mathfrak{g}\) with \(N_{\mathfrak{g}}(\mathfrak{h}) = \mathfrak{g}\) so that \(\mathfrak{h}\) is a codimension 1 ideal. We apply the induction hypothesis, i.e. let \(W \subset V\) be the nonzero subspace of eigenvectors for \(\mathfrak{h}\), since \(\mathfrak{h}\) is an ideal we have for \(w \in W\), \(\xi \in \mathfrak{g}, \eta \in \mathfrak{h}\)
+                \begin{align}
+                    \eta\xi(w) = \xi \eta (w) + [\eta,\xi](w) = 0
+                \end{align}
+                So that \(\mathfrak{g}: W \to W\), now writing \(\mathfrak{g} = \mathfrak{h} + k\xi\), we know the nilpotent endomorphism \(\xi: W \to W\) has an eigenvector,  this is already a common eigenvector for \(\mathfrak{h}\).
+            \end{proof}
+        \end{proposition}
+
+        \begin{theorem}[Engel]\label{engel}
+            If every element of \(\mathfrak{g}\) is ad-nilpotent, then \(\mathfrak{g}\) is nilpotent.
+
+            \begin{proof}
+                Consider \(\operatorname{ad}(\mathfrak{g}) \subset \mathfrak{gl}(g)\), by \textbf{Proposition \ref{engelstheoremlemma}} \(\mathfrak{z}(\mathfrak{g}) \neq 0\), so that \(\dim \mathfrak{g}^1 < \dim \mathfrak{g}\). Now proceeding by induction the ad action of any element of \(\mathfrak{g}\) on \(\mathfrak{g}^n\) is still nilpotent for any \(n\), thus \(\mathfrak{g}^n \cap \mathfrak{z} \neq 0\) and \(\dim \mathfrak{g}^{n+1} < \dim \mathfrak{g}^n\). Since \(\mathfrak{g}\) is finite dimensional it must be nilpotent.
+            \end{proof}
+        \end{theorem}
+        \begin{proposition}\label{corengel}
+            Let \(V\) be a finite dimensional vectorspace and \(\mathfrak{g} \subset \operatorname{End}(V)\) a subalgebra of nilpotent transformations, then there is a basis for \(V\) in which every matrix in \(\mathfrak{g}\) is upper triangular
+
+            \begin{proof}
+                 Start with a common eigenvector \(v \in V\), then take the second basis vector to be an eigenvector of \(V/\operatorname{span}(v)\), continuing this porcess gives a basis. With \(\mathfrak{g}\) upper triangular.
+            \end{proof}
+        \end{proposition}
     
     \subsection{The Killing Form}
 
@@ -506,6 +565,17 @@
         \end{pb}
         \begin{pb}
             Prove that for \(g \in O(n)\) the map \(x \mapsto gxg^{-1}\) defines an automorphism of an orthogonal lie algebra.
+
+            \begin{proof}
+                \textcolor{red}{TODO}
+            \end{proof}
+        \end{pb}
+
+
+        \subsection{Humphrey's Ch3.}
+
+        \begin{pb}
+            Let \(I \subset \mathfrak{g}\) be an ideal, prove that \(I^{(n)}\) and \(I^n\) are ideals for all \(n\).
         \end{pb}
 
 
@@ -526,5 +596,4 @@
                 Then \(B(f',-) = 0\) so that \(f' = 0\) contradicting \(V\) being \(2 \ell + 1\) dimensional. Construction of the basis from induction follows a similar technique so I won't make it explicit.
             \end{proof}
         \end{proposition}
-        
 \end{document}
