@@ -52,6 +52,8 @@
 
 \begin{document}
 
+    This document contains notes from my studying Lie Theory. The general structure is primarily following Humphrey's with some usage of other notes. The more complex proofs are almost entirely my reproductions from other sources. Many of the smaller propositions I try to prove myself, although they are taken from notes and books in which the structure is suggestive of the proof. The exercises are my own work.
+
     \section{Classification of Semi-Simple Lie Algebras}
 
     \subsection{Basic Examples}
@@ -279,7 +281,7 @@
             \end{proof}
         \end{proposition}
 
-        \begin{proposition}
+        \begin{proposition}\label{corlieideals}
             If \(\mathfrak{g}\) is solveable over an algebraically closed field of characteristic zero, then there is a sequence of ideals
             \begin{align}
                 0 \subset I_1 \subset I_2 \subset \cdots \subset I_n = \mathfrak{g}
@@ -290,6 +292,28 @@
                 \(\operatorname{ad}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})\) is a homomorphism hence has solveable image. Then there is a basis of \(\mathfrak{g}\) such that \(\operatorname{ad}(\xi,-)\) are simultaneously upper triangular, it follows that \(I_j\) is the \(j\)-th component of this flag.
             \end{proof}
         \end{proposition}
+        
+        \begin{proposition}\label{corlienilpotence}
+            If \(\mathfrak{g}\) is solveable over an algebraically closed field of characteristic zero, then \([\mathfrak{g},\mathfrak{g}]\) is nilpotent.
+
+            \begin{proof}
+                It is worth noting that the na\"ive approach via Jacobi identity is hopeless. There are two key observations,
+                \begin{enumerate}
+                    \item \([\operatorname{ad} \mathfrak{g}, \operatorname{ad} \mathfrak{g}] = \operatorname{ad}([\mathfrak{g},\mathfrak{g}])\)
+                    \item The derived subalgebra of upper traingular matrices is strictly upper triangular.
+                \end{enumerate}
+                By \textbf{Theorem \ref{liestheorem}} there is a basis for \(\mathfrak{g}\) in which \(\operatorname{ad}(\mathfrak{g})\) are simulataneously upper triangular, thus \(\operatorname{ad}([\mathfrak{g},\mathfrak{g}]) = [\operatorname{ad} \mathfrak{g}, \operatorname{ad} \mathfrak{g}]\) is contained in the derived subalgebra of upper triangular matrices -- strictly upper triangular matrices. Thus by \textbf{Theorem \ref{engel}} \([\mathfrak{g},\mathfrak{g}]\) is ad-nilpotent and hence nilpotent.
+            \end{proof}
+        \end{proposition}
+
+        \begin{theorem}[Cartan's Criterion]\label{cartanscriterion}
+            Let \(\mathfrak{g}\) be a subalgebra of \(\mathfrak{gl}(V)\) for \(V\) a finite dimensional vectorspace over an algerbraically closed field of characteristic zero. Then if
+            \(\operatorname{tr}(xy) = 0\) for all \(x \in [\mathfrak{g},\mathfrak{g}]\) and \(y \in \mathfrak{g}\) we can conclude \(\mathfrak{g}\) is solveable.
+
+            \begin{proof}
+                \textcolor{red}{I am omitting the proof since the technique is quite unique, if it becomes relevant later this should be filled in.}
+            \end{proof}
+        \end{theorem}
     
     \subsection{The Killing Form}
 
@@ -361,6 +385,14 @@
                     &= \operatorname{tr}(0) = 0
                 \end{align}
                 Where \eqref{justify2} follows from cyclicity of trace.
+            \end{proof}
+        \end{proposition}
+
+        \begin{proposition}
+            Consider \(\mathfrak{g} \subset \mathfrak{gl}(V)\) for \(V\) a finite dimensional vectorspace over an algebraically closed field of characteristic zero. Then if \(\kappa(\xi,\eta) = 0\) for all \(\xi \in [\mathfrak{g},\mathfrak{g}] \tand \eta \in \mathfrak{g}\) it follows that \(\mathfrak{g}\) is solveable.
+
+            \begin{proof}
+                By Cartan's criterion \textbf{Theorem \ref{cartanscriterion}} we know that \(\operatorname{ad} \mathfrak{g}\) is solveable. Since \(\ker \operatorname{ad} = \mathfrak{z}(\mathfrak{g})\) is solveable it follows that \(\mathfrak{g}\) is.
             \end{proof}
         \end{proposition}
 
@@ -624,6 +656,87 @@
                 We are done by induction since \([x,\mathfrak{g}^{(n-1)}] \subset \mathfrak{g}^{(n-1)}\).
             \end{proof}
         \end{pb}
+
+        \begin{pb}
+            Show that \(\mathfrak{g}\) is solveable if and only if there exists a chain of ideals \(0 = I_0 \subset I_1 \subset \cdots \subset I_r = \mathfrak{g}\) with \(I_j/I_{j-1}\) abelian.
+
+            \begin{proof}
+                One direction is obvious, prove the other direction. This is trivial (over an algebraically closed field of characteristic zero) if we apply a corollary of Lie's theorem \textbf{Propositon \ref{corlieideals}} since this gives a sequence of codimension \(1\) ideals. Alternatively the previous exercise tells us that \(I_n = \mathfrak{g}^{(n)}\) is always an ideal, moreover \(\mathfrak{g}^{(n-1)}/\mathfrak{g}^{(n)}\) is abelian.
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Let \(k\) be a field of characteristic 2, then \(\mathfrak{sl}(2,k)\) is nilpotent.
+
+            \begin{proof}
+                \(\operatorname{ad}(h)\) is the zero map, and \(\mathfrak{sl}(2,k)^{(1)} \subset \operatorname{span}_k(h)\).
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Prove that \(\mathfrak{g}\) is solveable (resp. nilpotent) if and only if \(\operatorname{ad}(\mathfrak{g})\) is solveable (resp. nilpotent)
+
+            \begin{proof}
+                \(\ker \operatorname{ad} = \mathfrak{z}(\mathfrak{g})\) is nilpotent, thus \(\operatorname{ad}(\mathfrak{g}) \cong \mathfrak{g}/\mathfrak{z}(\mathfrak{g})\) is solveable/nilpotent iff \(\mathfrak{g}\) is.
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Prove that the nonabelian dimension 2 Lie algebra is not nilpotent.
+
+            \begin{proof}
+                \(\mathfrak{g}^{(1)} = x\), and \([x,y] = x\), thus \(\mathfrak{g}^j = \mathfrak{g}^{(1)}\) for \(j \geq 1\). But \([x,x] = 0\) so \(\mathfrak{g}^{(2)} = 0\).
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Prove that every lie algebra has a unique maximal nilpotent ideal.
+
+            \begin{proof}
+                It suffices to show the sum of nilpotent ideals is nilpotent. This follows from the second isomorphism theorem
+                \begin{align}
+                    I + J/I \cong J/(I\cap J)
+                \end{align}
+                Is clearly nilpotent since \(J\) is, and since \(I\) is nilpotent, the quotient is nilpotent if and only if \(I + J\) was.
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Let \(\mathfrak{h} \subsetneq \mathfrak{g}\) be a proper subalgebra of a nilpotent lie algebra, then \(N_{\mathfrak{g}}(\mathfrak{h}) \supsetneq \mathfrak{h}\).
+
+            \begin{proof}
+                The \(\operatorname{ad}\) action of \(\mathfrak{h}\) on the vectorspace \(\mathfrak{g}/\mathfrak{h}\) has a common eigenvector.
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Let \(\mathfrak{g} \neq 0\) be nilpotent, then \(\mathfrak{g}\) has an ideal of codimension 1.
+
+            \begin{proof}
+                By the previous exercise it suffices to construct a codimension \(1\) subalgebra, take a preimage of a codimension \(1\) subalgebra in the abelian algebra \(\mathfrak{g}/\mathfrak{g}^{(1)}\).
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Show that every nilpotent lie algebra \(\mathfrak{g} \neq 0\) has an outer derivation.
+
+            \begin{proof}
+                Let \(\mathfrak{h}\) be a codimension \(1\) ideal, \(\mathfrak{g} = k\xi + \mathfrak{h}\). It has nontrivial centralizer since \(\mathfrak{z}(\mathfrak{g}) \neq 0\) since \(\mathfrak{g}\) is nilpotent. Now choose \(n\) such that \(C_\mathfrak{g}(\mathfrak{h}) \subset \mathfrak{g}^n\) but \(C_\mathfrak{g}(\mathfrak{h}) \not \subset \mathfrak{g}^{n+1}\). Now let \(z \in C_{\mathfrak{g}}(\mathfrak{h}) \setminus \mathfrak{g}^{n+1}\) and define \(D: \mathfrak{h} \to 0, D(\xi) = z\). It suffices to check the following derivation property for \(\eta \in \mathfrak{h}\)
+                \begin{align}
+                    0 = D([\xi,\eta]) = [D(\xi),\eta] + [\xi,D(\eta)] = [z,\eta] = 0
+                \end{align}
+            \end{proof}
+        \end{pb}
+
+        \begin{pb}
+            Let \(\mathfrak{g}\) be a lie algebra, such that \(\mathfrak{g}/\mathfrak{h}\) is nilpotent for an ideal \(\mathfrak{h}\) with \(\operatorname{ad} \xi\vert_\mathfrak{h}\) nilpotent for all \(\xi\). Prove that \(\mathfrak{g}\) is nilpotent.
+
+            \begin{proof}
+                By Engels theorem, \textbf{Theorem \ref{engel}}, \(\mathfrak{h}\) is nilpotent, then since \(\mathfrak{g}/\mathfrak{h}\) is nilpotent so is \(\mathfrak{g}\).
+            \end{proof}
+        \end{pb}
+
+        \subsection{Humphrey's Ch4.}
 
 
         \section{Appendix}
