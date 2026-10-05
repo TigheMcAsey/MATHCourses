@@ -251,6 +251,45 @@
                  Start with a common eigenvector \(v \in V\), then take the second basis vector to be an eigenvector of \(V/\operatorname{span}(v)\), continuing this porcess gives a basis. With \(\mathfrak{g}\) upper triangular.
             \end{proof}
         \end{proposition}
+
+        \begin{theorem}[Lie]\label{liestheorem}
+            Suppose that \(\mathfrak{g} \subset \mathfrak{gl}(V)\) is a solveable subalgebra, where \(V \neq 0\) is finite dimensional. Then \(V\) contains a common eigenvector for \(\mathfrak{g}\). Here we require that \(k\) is algebraically closed (or contains all eigenvalues of \(\mathfrak{g}\)) and is of characteristic zero.
+
+            \begin{proof}
+                The proof is of course similar to Engel's theorem. In fact by taking a preimage of the quotient by the derived subalgebra we once again get an ideal \(\mathfrak{h}\) of codimension \(1\). We proceed by induction on \(\dim \mathfrak{g}\), if it is dimension one then we are done.
+                
+                Now copying the proof of Engel's theorem, let \(0 \neq W \subset V\) be a space of common eigenvectors for \(\mathfrak{h}\), more specifically first fix a linear functional \(\lambda: \mathfrak{h} \to k\), and let \(W = \set{v \in V \mid \eta \in \mathfrak{h} \implies \eta(v) = \lambda(\eta)v}\). it suffices to show that \(\mathfrak{g}: W \to W\). It follows that \(\mathfrak{g}\) fixes \(W\) if and only if \(\xi \in \mathfrak{g}, \eta \in \mathfrak{h} \tand w \in W\)
+                \begin{align}
+                    \lambda(\eta)\xi w = \xi\eta(w) = \lambda(\eta)\xi(w) - \lambda([\xi,\eta])w
+                \end{align}
+                Thus we want to show that \(\lambda([\xi,\eta])\) is always zero, it is easy to see this is sufficient.
+
+                To see this, consider \(W_r = \set{\xi^j w}_{j \in \mathbb{Z}_{\geq 0}}\), where \(r\) is the dimension of \(W_r\). Define \(W_j\) to be the \(j\) dimensional subspace spanned by the first \(j\) vectors of \(W_r\). We first note that by induction \(\eta: W_j \to W_j\), to see this note that \([\xi,\eta] \in \mathfrak{h}\) so that
+                \begin{align}\label{bracketequiv}
+                    \eta \xi^j(w) = \xi \eta \xi^{j-1}(w) - [\xi,\eta]\xi^{j-1}(w)
+                \end{align}
+                applying this recursively by swapping \([\xi,\eta]\) for \(\eta\) establishes this. We further use \eqref{bracketequiv} to establish by induction that \(\eta \xi^j(w) = \lambda(\eta)\xi^j(w) + w'\) for \(w' \in W_j\). Thus it follows that \(\operatorname{tr}_{W_j}(y) = j \lambda(y)\). Since \(\xi: W_r \to W_r\) by definition of \(W_r\) we find that \(\operatorname{tr}_{W_r}([\xi,\eta])\) is well defined (and zero). But then since \([\xi,\eta] \in \mathfrak{h}\), we get that \(0 = \operatorname{tr}_{W_r}([\xi,\eta]) = r \lambda([\xi,\eta])\). Now since \(k\) is characteristic zero we conclude that \(\lambda([\xi,\eta]) = 0\).
+            \end{proof}
+        \end{theorem}
+        \begin{proposition}[Lie]\label{lieuppertriang}
+            Let \(V\) be a (finite dim) vectorspace over \(k\), a field of characteristic zero containing all eigenvalues of a solveable lie algebra \(\mathfrak{g} \subset \mathfrak{gl}(V)\). Then there exists a basis of \(V\) so that every matrix in \(\mathfrak{g}\) is upper triangular.
+
+            \begin{proof}
+                Apply \textbf{Theorem \ref{liestheorem}} to get \(w_1 \in V\) a common eigenvector for \(\mathfrak{g}\), then let \(w_2 \in V/\operatorname{span}_k(w_1)\) be a common eigenvector for \(\mathfrak{g}\) acting on \(V/\operatorname{span}_k(w_1)\), continue this process.
+            \end{proof}
+        \end{proposition}
+
+        \begin{proposition}
+            If \(\mathfrak{g}\) is solveable over an algebraically closed field of characteristic zero, then there is a sequence of ideals
+            \begin{align}
+                0 \subset I_1 \subset I_2 \subset \cdots \subset I_n = \mathfrak{g}
+            \end{align}
+            with \(\dim I_j = j\)
+
+            \begin{proof}
+                \(\operatorname{ad}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})\) is a homomorphism hence has solveable image. Then there is a basis of \(\mathfrak{g}\) such that \(\operatorname{ad}(\xi,-)\) are simultaneously upper triangular, it follows that \(I_j\) is the \(j\)-th component of this flag.
+            \end{proof}
+        \end{proposition}
     
     \subsection{The Killing Form}
 
@@ -576,6 +615,14 @@
 
         \begin{pb}
             Let \(I \subset \mathfrak{g}\) be an ideal, prove that \(I^{(n)}\) and \(I^n\) are ideals for all \(n\).
+
+            \begin{proof}
+                The case of the central series is trivial since \(\mathfrak{g}^{n} := [\mathfrak{g},\mathfrak{g}^{n-1}]\). The derived series simply follows by induction and the Jacobi identity.
+                \begin{align}
+                    [x,\mathfrak{g}^{(n)}] = [x,[\mathfrak{g}^{(n-1)},\mathfrak{g}^{(n-1)}]] = [\mathfrak{g}^{(n-1)},[x,\mathfrak{g}^{(n-1)}]] - [\mathfrak{g}^{(n-1)},[x,\mathfrak{g}^{(n-1)}]]
+                \end{align}
+                We are done by induction since \([x,\mathfrak{g}^{(n-1)}] \subset \mathfrak{g}^{(n-1)}\).
+            \end{proof}
         \end{pb}
 
 
