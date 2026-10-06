@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1791233046.53119 "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/NotesOnLieAlgebras.tex" "NotesOnLieAlgebras.pdf" "NotesOnLieAlgebras" 1791233047.01007 0
-  "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/NotesOnLieAlgebras.tex" 1791233045.85255 48960 6ca384ba87a750aab7b1cafc6590b1d7 ""
+["pdflatex"] 1791253951.7226 "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/NotesOnLieAlgebras.tex" "NotesOnLieAlgebras.pdf" "NotesOnLieAlgebras" 1791253952.21705 0
+  "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/NotesOnLieAlgebras.tex" 1791253951.55703 51565 62814608448a05255a618bbbe2a0d3f7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1246382020 1040 b84415f97d114011685943ade933dc71 ""
@@ -143,8 +143,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757546981 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "NotesOnLieAlgebras.aux" 1791233046.95827 4037 b571f4bc798f3c720424ad91cc879157 "pdflatex"
-  "NotesOnLieAlgebras.tex" 1791233045.85255 48960 6ca384ba87a750aab7b1cafc6590b1d7 ""
+  "NotesOnLieAlgebras.aux" 1791253952.16535 4037 16764d542b25f2f6be2a0179f78debdc "pdflatex"
+  "NotesOnLieAlgebras.tex" 1791253951.55703 51565 62814608448a05255a618bbbe2a0d3f7 ""
   (generated)
   "NotesOnLieAlgebras.aux"
   "NotesOnLieAlgebras.log"

@@ -195,6 +195,14 @@
             The Lie bracket is inhereted from \(\operatorname{Der}(\mathfrak{g})\), which is inhereted from \(\mathfrak{gl}(\mathfrak{g})\)
         \end{definition}
 
+        \begin{definition}
+            A flag is \textcolor{red}{TODO...}
+        \end{definition}
+
+        \begin{definition}
+            The abstract Jordan decomposition of \(x \in \mathfrak{g}\) a semi-simple lie algebra. Then \textcolor{red}{TODO...}
+        \end{definition}
+
     \subsection{Basic Results on Nilpotence and Solveability}
         \begin{proposition}\label{basicsolveability}
             \begin{enumerate}
@@ -395,6 +403,26 @@
                 By Cartan's criterion \textbf{Theorem \ref{cartanscriterion}} we know that \(\operatorname{ad} \mathfrak{g}\) is solveable. Since \(\ker \operatorname{ad} = \mathfrak{z}(\mathfrak{g})\) is solveable it follows that \(\mathfrak{g}\) is.
             \end{proof}
         \end{proposition}
+
+        \begin{theorem}
+            A Lie algebra \(\mathfrak{g}\) is semi-simple if and only if its Killing form is non-degenerate.
+
+            \begin{proof}
+                Consider \(S\) the radical of the killing form \(\kappa\). Then \(S := \set{x \mid \kappa(x,-) = 0}\). Applying Cartan's Criterion \textbf{Theorem \ref{cartanscriterion}} we know that \(\operatorname{ad}(S)\) is solveable, and since \(\ker \operatorname{ad}\) is solveable we conclude \(S\) is solveable. Thus \(S \subset \operatorname{Rad}(\mathfrak{g}) = 0\).
+
+                Let \(I\) be an ideal, since \(I^{(n)}\) is an ideal for all \(n\) we find that existence of a nonzero solveable subalgebra implies existence of a nonzero abelian subalgebra. Thus it suffices to show that \(I \subset S\) for any abelian ideal \(I\). Considering such an ideal, let \(x \in I\) and \(y \in \mathfrak{g}\), then \((\operatorname{ad}_x \circ \operatorname{ad}_y)^2(\mathfrak{g}) \subset [I,I] = 0\). Thus \(\operatorname{ad}_x \circ \operatorname{ad}_y\) is nilpotent thus its trace \(\kappa(x,y) = 0\).
+            \end{proof}
+        \end{theorem}
+
+        \begin{theorem}
+            Suppose \(\mathfrak{g}\) is semi-simple, then the killing form decomposes \(\mathfrak{g}\) into orthogonal simple lie algebras. Moreover this decomposition is unique.
+
+            \begin{proof}
+                Since \(\kappa\) is nondegenerate, \(\kappa\) decomposes \(\mathfrak{g}\) into \(I + I^\perp\), then if \(x \in I \cap I^\perp\), we get \(\kappa(x,-) = 0\) since its orthogonal to everything so that we get \(I \oplus I^\perp\). Applying this further to the ideals we eventually get simple ideals, which are orthogonal with respect to the killing form.
+
+                A simple lie algebra satisfies \([\mathfrak{g},\mathfrak{g}] = \mathfrak{g}\). Thus for a simple ideal, \(I\) we get \([I,\mathfrak{g}] = I\), given another decomposition with irreducible ideal \(J\), we have \([I,J] \subset J\) is an ideal, hence \([I,J] = 0\) or \(J = I\).
+            \end{proof}
+        \end{theorem}
 
     \section{Lie Groups}
     \subsection{General Theory}
@@ -737,7 +765,13 @@
         \end{pb}
 
         \subsection{Humphrey's Ch4.}
+            \begin{pb}
+                Use Lie's theorem to prove that \(\operatorname{Rad}(\mathfrak{sl}(V)) = \mathfrak{z}(\mathfrak{sl}(V))\).
 
+                \begin{proof}
+                    Following the hint,
+                \end{proof}
+            \end{pb}
 
         \section{Appendix}
         \begin{proposition}\label{bilinearformequiv}
