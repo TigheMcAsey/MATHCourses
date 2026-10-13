@@ -15,7 +15,7 @@
 \geometry{a4paper, margin=1in}
 
 \theoremstyle{definition}
-\newtheorem{pb}{}
+\newtheorem{pb}{Exercise}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
@@ -126,4 +126,45 @@
             &\beta_3 = \set{(x^1,x^2,\pi)\mid \cos(x^1) + \cos(x^2) = 1}
         \end{align}
     \end{example}
+
+    \section{Symmetric Products}
+    \begin{theorem}[Osvath Szabo Intro to Floer 4.1]
+        \(\pi_1(\operatorname{Sym}^g(\Sigma)) \cong H_1(\operatorname{Sym}^g(\Sigma)) \cong H_1(\Sigma)\)
+
+        From Dusa McDuff's survey paper, the isomorphism is induced by inclusion \(\Sigma \hookrightarrow \Sigma \times \set{z}^{g-1}\)
+    \end{theorem}
+
+    \begin{pb}
+        Compute \(\pi_2(\operatorname{Sym}^2(\Sigma_2))\)
+
+        \begin{proof}
+            As written in the notes, \(\operatorname{Sym}^2(\Sigma_2) \cong \mathbb{T}^4 \# \mathbb{CP}^2\). Then we know that \(\mathbb{CP}^2\) is given by gluing \(D^4\) to \(\mathbb{CP}^1 \cong S^2\) along \(\partial D^4 = S^3\). We can take the connect sum to be cutting out this \(D^4\) and gluing along \(S^3\). We see that if we first took \((\mathbb{T}^4,D^4)\) and \((\mathbb{CP}^4,D^4)\) as CW pairs and quotiented before gluing then we get \(\mathbb{T}^4\) with \(\mathbb{CP}^2 \cong S^2\) glued to a point, this is a homotopy equivalence by Hatcher 0.16. Thus we find that
+            \begin{align}
+                \operatorname{Sym}^2(\Sigma_2) \cong \mathbb{T}^4 \vee S^2
+            \end{align}
+            Observe that this has universal covering space \(X\) given by \(\mathbb{R}^4\) with spheres placed at each point in \(\mathbb{Z}^4\). The Hurewicz theorem tells us that \(\pi_2(X) \cong H_2(X)\), and the fibration
+            \begin{align}
+                \mathbb{Z}^4 \to X \to \mathbb{T}^4 \vee S^2
+            \end{align}
+            gives the long exact sequence of homotopy groups (Hatcher 4.2)
+            \begin{equation}
+                \begin{tikzcd}
+                \cdots \arrow[r] &\pi_j(\mathbb{Z}^4) \arrow[r] &\pi_j(X) \arrow[r] &\pi_j(\mathbb{T}^4 \vee S^2) \arrow[r] &\pi_{j-1}(\mathbb{Z}^4) \arrow[r] &\cdots
+            \end{tikzcd}
+            \end{equation}
+            Setting \(j\geq2\) the homotopy groups of \(\mathbb{Z}^4\) are zero so we get \(\pi_2(X) \cong \pi_2(\mathbb{T}^4 \vee S^2)\). Thus it suffices to compute \(H_2(X)\), we can see this is \(\mathbb{Z}^4\). We conclude that
+            \begin{align}
+                \pi_2(\operatorname{Sym}^2(\Sigma_2)) \cong \pi_2(\mathbb{T}^4 \vee S^2) \cong \bigoplus_{\mathbb{Z}^4}\mathbb{Z}
+            \end{align}
+        \end{proof}
+    \end{pb}
+
+    \begin{pb}
+        Show that \(\mathbb{T}_\alpha\) is a totally real submanifold of \(\operatorname{Sym}^g(\Sigma)\)
+
+        \begin{proof}
+            We have \(\mathbb{T}_\alpha \subset \operatorname{Sym}^g\)
+        \end{proof}
+    \end{pb}
+
 \end{document}
