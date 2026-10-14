@@ -1,0 +1,99 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[includeheadfoot]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+
+\fancyhf{}
+\lhead{Engel's Theorem}
+\rhead{Tighe McAsey}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper, margin=1in}
+
+\theoremstyle{definition}
+\newtheorem{pb}{Exercise}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\numberwithin{example}{subsection}
+\usepackage{tikz-cd, stackengine}
+
+% Commands:
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\gen}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\pd}{\frac{\partial}{\partial x_j}}
+\newcommand{\px}{\frac{\partial}{\partial x}}
+\newcommand{\py}{\frac{\partial}{\partial y}}
+\newcommand{\pz}{\frac{\partial}{\partial z}}
+\newcommand{\ppx}{\frac{\partial^2}{\partial x^2}}
+\newcommand{\ppy}{\frac{\partial^2}{\partial y^2}}
+\newcommand{\ppz}{\frac{\partial^2}{\partial z^2}}
+\newcommand{\hess}{\operatorname{Hess}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\spl}{\operatorname{\mathfrak{sl}}}
+\newcommand{\spg}{\mathfrak{g}}
+\newcommand{\sph}{\mathfrak{h}}
+\newcommand{\spu}{\operatorname{\mathfrak{su}}}
+\newcommand{\spo}{\operatorname{\mathfrak{so}}}
+
+\begin{document}
+    \begin{remark}
+        It was given as an exercise in class to define the semisimple and nilpotent parts of an element \(x \in \mathfrak{g}\), we do that here.
+
+        \begin{proof}
+            The proof uses two results:
+            \begin{proposition}[Humphreys Lemma 4.2B]\label{prop}
+                Let \(\mathfrak{U}\) be a finite dimensional \(k\)-Algebra. Then for \(x \in \mathfrak{U}\) the jordan decompoisition \(x = x_s + x_n\) in \(\operatorname{End}(\mathfrak{U}) \supset \operatorname{Der}(\mathfrak{U})\) satisfies \(x_n, x_s \in \operatorname{Der}(\mathfrak{U})\).
+            \end{proposition}
+
+            \begin{proposition}[Humphreys Theorem 5.3]\label{prop2}
+                If \(\mathfrak{g}\) is semisimple then \(\operatorname{ad}(\mathfrak{g}) = \operatorname{Der}(\mathfrak{g})\).
+            \end{proposition}
+
+            We are now ready to define the semisimple and nilpotent part of an element \(x\). Recall that \(\operatorname{ad}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})\), then for \(x \in \mathfrak{g}\) it follows that \(\operatorname{ad}(x)\) has a Jordan decomposition. Now since \(\mathfrak{g}\) is semisimple, we know that \(\mathfrak{z}(\mathfrak{g}) \subset \operatorname{Rad}(\mathfrak{g}) = 0\) and thus \(\operatorname{ad}: \mathfrak{g} \overset{\cong}{\longrightarrow} \operatorname{ad}(\mathfrak{gl}(\mathfrak{g}))\). Thus we define the Jordan decomposition as follows
+            \begin{align}
+                x_s = \operatorname{ad}^{-1}(\operatorname{ad}(x)_s) \tand x_n = \operatorname{ad}^{-1}(\operatorname{ad}(x)_n)
+            \end{align}
+            The fact that \(\operatorname{ad}(x)_s,\operatorname{ad}(x)_n \in \operatorname{ad}(\mathfrak{g})\) follows from Proposition \ref{prop} and Proposition \ref{prop2}.
+        \end{proof}
+    \end{remark}
+
+    \begin{pb}[Humphrey's 5.8]
+        Let \(\mathfrak{g}\) be a Lie algebra and \(\bigoplus I_j\) be its decomposition into simple ideals. Let \(\pi_j: \mathfrak{g} \to I_j\) be the projection, then show that
+        \begin{align}
+            x_n = \sum_j \pi_j(x)_n \tand x_s = \sum_j \pi_j(x)_s
+        \end{align}
+
+        Before beginning the proof it is worth noting that this decomposition uses the forward implication of \(\mathfrak{g}\) is semisimple \(\iff \kappa\) is nondegerate. This requires that the base field \(k\) have characteristic zero since the proof uses Cartan's criterion which relies on characteristic zero. A number of the results stated in defining the semisimple nilpotent decomposition also require certain niceties of the base field, for simplicity I assume that \(k\) is an algebraically closed field of characteristic zero, all of the stated propositions hold in this context.
+
+        \begin{proof} Since \(\mathfrak{g}\) is semisimple we find that for \(i \neq j\) we have \([I_j,I_i] \subset I_j \cap I_i = 0\) so that
+        \begin{align}
+            [\operatorname{ad}(\pi_j(x)),\operatorname{ad}(\pi_i(x))] = \operatorname{ad}([\pi_j(x),\pi_i(x)]) = \operatorname{ad}(0) = 0
+        \end{align}
+        So all of the \(\operatorname{ad}(\pi_j(x))\) commute. We use a fact from linear algebra that the sum of commuting semisimple (resp. nilpotent) elements is semisimple (resp. nilpotent). It follows that
+        \begin{align}
+            \operatorname{ad}(x) = \sum_j \operatorname{ad}(\pi_j(x)) = \sum_j \operatorname{ad}(\pi_j(x))_s + \operatorname{ad}(\pi_j(x))_n = \underbrace{\sum_j \operatorname{ad}(\pi_j(x))_s}_{\text{semisimple}} + \underbrace{\sum_j \operatorname{ad}(\pi_j(x))_n}_{\text{nilpotent}}
+        \end{align}
+        Then by uniqueness of the Jordan decomposition, we find that
+        \begin{align}
+            \operatorname{ad}(x)_s = \sum_j \operatorname{ad}(\pi_j(x))_s \tand \operatorname{ad}(x)_n = \sum_j \operatorname{ad}(\pi_j(x))_n
+        \end{align}
+        It follows that
+        \begin{align}
+            x_s = \operatorname{ad}^{-1}(\operatorname{ad}(x)_s) = \operatorname{ad}^{-1}\left(\sum_j \operatorname{ad}(\pi_j(x))_s\right) = \sum_j \operatorname{ad}^{-1}(\operatorname{ad}(\pi_j(x))_s) = \sum_j \pi_j(x)_s \\
+            x_n = \operatorname{ad}^{-1}(\operatorname{ad}(x)_n) = \operatorname{ad}^{-1}\left(\sum_j \operatorname{ad}(\pi_j(x))_n\right) = \sum_j \operatorname{ad}^{-1}(\operatorname{ad}(\pi_j(x))_n) = \sum_j \pi_j(x)_n
+        \end{align}
+    \end{proof}
+    \end{pb}
+\end{document}

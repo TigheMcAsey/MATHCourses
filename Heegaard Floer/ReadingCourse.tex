@@ -152,7 +152,7 @@
                 \cdots \arrow[r] &\pi_j(\mathbb{Z}^4) \arrow[r] &\pi_j(X) \arrow[r] &\pi_j(\mathbb{T}^4 \vee S^2) \arrow[r] &\pi_{j-1}(\mathbb{Z}^4) \arrow[r] &\cdots
             \end{tikzcd}
             \end{equation}
-            Setting \(j\geq2\) the homotopy groups of \(\mathbb{Z}^4\) are zero so we get \(\pi_2(X) \cong \pi_2(\mathbb{T}^4 \vee S^2)\). Thus it suffices to compute \(H_2(X)\), we can see this is \(\mathbb{Z}^4\). We conclude that
+            Setting \(j\geq2\) the homotopy groups of \(\mathbb{Z}^4\) are zero so we get \(\pi_2(X) \cong \pi_2(\mathbb{T}^4 \vee S^2)\). Thus it suffices to compute \(H_2(X)\), we can see this is \(\mathbb{Z}^4\) since \(X \simeq \bigvee_{\mathbb{Z}^4}S^2\). We conclude that
             \begin{align}
                 \pi_2(\operatorname{Sym}^2(\Sigma_2)) \cong \pi_2(\mathbb{T}^4 \vee S^2) \cong \bigoplus_{\mathbb{Z}^4}\mathbb{Z}
             \end{align}
@@ -163,7 +163,17 @@
         Show that \(\mathbb{T}_\alpha\) is a totally real submanifold of \(\operatorname{Sym}^g(\Sigma)\)
 
         \begin{proof}
-            We have \(\mathbb{T}_\alpha \subset \operatorname{Sym}^g\)
+            Use abuse of notation to consider \(\mathbb{T}_\alpha \subset \Sigma^g\), then since \(\mathbb{T}_\alpha\) is a submanifold and so is the diagonal \(\Delta = (\Sigma^g)^{S_g}\) and they are disjoint, we can take a tubular neighborhood \(N\) of \(\Delta\) which is disjoint from \(\mathbb{T}_\alpha\). Moreover, by possibly shrinking \(N\) we may assume that \(S_g: N \to N\). It follows that \(S_g: \Sigma^g \setminus N \to \Sigma^g \setminus N\) acts properly discontinuously. Consider the following, the horizontal arrows are inclusions and the vertical are quotient by \(S_g\).
+            \begin{equation}\begin{tikzcd}
+                \mathbb{T}_\alpha \arrow[d ,"\cong"]\arrow[r,"\iota"] &\Sigma^g \setminus N \arrow[d] \arrow[r,"\iota"] &\Sigma^g \arrow[d] \\
+                \mathbb{T}_\alpha \arrow[r, "\iota"] &\operatorname{Sym}^g(\Sigma) \setminus N \arrow[r, "\iota"] &\operatorname{Sym}^g(\Sigma)
+            \end{tikzcd}\end{equation}
+            Apply \(T_*\) to the above diagram to get
+            \begin{equation}\begin{tikzcd}
+                \bigoplus_j T_* \alpha_j \arrow[d, "\cong"]\arrow[r,"\iota"] &T_*(\Sigma^g \setminus N) \arrow[d] \arrow[r,"\iota"] &\bigoplus_j T_*\Sigma \arrow[d, ""] \\
+                T_*\mathbb{T}_\alpha \arrow[r, "\iota"] &T_*\operatorname{Sym}^g(\Sigma) \setminus N \arrow[r, "\iota"] &T_*\operatorname{Sym}^g(\Sigma)
+            \end{tikzcd}\end{equation}
+            The complex structure being induced by that of \(\Sigma\) should mean that \(J(T_*\mathbb{T}_\alpha) = \bigoplus_\alpha JT\) and that \(J\) commutes with the quotient action. This reduces the question of \(\mathbb{T}_\alpha\) being totally real to showing that each of \(\alpha_j\) being totally real. This is trivial since for \((v,p) \in T_* \alpha_j\) we have \(Jv\) is linearly independent from \(v\).
         \end{proof}
     \end{pb}
 

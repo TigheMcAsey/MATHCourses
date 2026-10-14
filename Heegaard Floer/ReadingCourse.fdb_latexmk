@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1791919095.34871 "/Users/tighe/School_Work/UBC-2026/MATHCourses/Heegaard Floer/ReadingCourse.tex" "ReadingCourse.pdf" "ReadingCourse" 1791919095.88789 0
-  "/Users/tighe/School_Work/UBC-2026/MATHCourses/Heegaard Floer/ReadingCourse.tex" 1791919095.13647 9154 b490c2f4707394f9a13d814ab4ee57a1 ""
+["pdflatex"] 1791936482.21816 "/Users/tighe/School_Work/UBC-2026/MATHCourses/Heegaard Floer/ReadingCourse.tex" "ReadingCourse.pdf" "ReadingCourse" 1791936482.77078 0
+  "/Users/tighe/School_Work/UBC-2026/MATHCourses/Heegaard Floer/ReadingCourse.tex" 1791936482.0394 10969 491853a12256c5cdf31181b2101ade95 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -137,8 +137,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757546981 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "ReadingCourse.aux" 1791919095.83185 344 785ec40ff2310513fbbcb3dad476b030 "pdflatex"
-  "ReadingCourse.tex" 1791919095.13647 9154 b490c2f4707394f9a13d814ab4ee57a1 ""
+  "ReadingCourse.aux" 1791936482.71759 344 b179637370acbafd4df94e6537905447 "pdflatex"
+  "ReadingCourse.tex" 1791936482.0394 10969 491853a12256c5cdf31181b2101ade95 ""
   (generated)
   "ReadingCourse.aux"
   "ReadingCourse.log"
