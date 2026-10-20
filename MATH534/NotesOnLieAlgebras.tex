@@ -203,6 +203,16 @@
             The abstract Jordan decomposition of \(x \in \mathfrak{g}\) a semi-simple lie algebra. Then \textcolor{red}{TODO...}
         \end{definition}
 
+        \begin{definition}\label{casimir}
+            Let \(\phi: \mathfrak{g} \to \mathfrak{gl}(V)\) be a representation of a semisimple lie algebra. This defines a symmetric bilinear form \(B(\xi,\eta) = \operatorname{tr}(\phi(\xi),\phi(\eta))\). If \(\phi\) is faithful then \(B\) is nondegenerate, and we can take a dual basis to \(\set{x_j}\) a basis for \(\mathfrak{g}\) as \(\set{y_j}\) such that \(B(x_j,y_i) = \delta_{ji}\). The Casimir element is defined as follows:
+            \begin{align}
+                c_\phi := \sum \phi(x_j)\phi(y_j)
+            \end{align}
+            Then \(c_\phi\) commutes with \(\phi(\mathfrak{g})\) and \(\operatorname{tr}(c_\phi) = \dim \mathfrak{g}\).
+
+            We can also define the Casimir element for a representation that isn't faithful. To do so define \(c_{\phi}\) as the Casimir element of \(\ker\phi^{\perp}\).
+        \end{definition}
+
     \subsection{Basic Results on Nilpotence and Solveability}
         \begin{proposition}\label{basicsolveability}
             \begin{enumerate}
@@ -432,6 +442,14 @@
         \end{theorem}
 
         \section{Representations of Lie Algebras}
+
+        \begin{theorem}[Schur's Lemma]\label{schur}
+            Suppose \(\phi: \mathfrak{g} \to \operatorname{End}(V)\) is an irreducible representation. Then any \(A \in \operatorname{End}(V)\) satisfying for all \(\xi \in \mathfrak{g}\) that \(A\phi(\xi) = \phi(\xi)A\) is a scalar.
+
+            \begin{proof}
+                Let \(A\) be such a map, then assuming \(k\) is algebraically closed, \(A\) has an eigenvector. Now consider \(\lambda\) to be the eigenvector for eigenvalue \(v\). It follows that \(v \in \ker A - \lambda\), moreover commutativity tells us that \(\phi(\mathfrak{g}): \ker A - \lambda \to \ker A - \lambda\) thus by definition of irreducibility \(0 \neq \ker (A - \lambda) = V\).
+            \end{proof}  
+        \end{theorem}
 
     \section{Lie Groups}
     \subsection{General Theory}

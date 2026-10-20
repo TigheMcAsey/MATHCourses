@@ -1,0 +1,86 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[includeheadfoot]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+
+\fancyhf{}
+\lhead{Weyl's Theorem}
+\rhead{Tighe McAsey}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper, margin=1in}
+
+\theoremstyle{definition}
+\newtheorem{pb}{}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\numberwithin{example}{subsection}
+\numberwithin{pb}{subsection}
+\usepackage{tikz-cd, stackengine}
+
+% Commands:
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\gen}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\pd}{\frac{\partial}{\partial x_j}}
+\newcommand{\px}{\frac{\partial}{\partial x}}
+\newcommand{\py}{\frac{\partial}{\partial y}}
+\newcommand{\pz}{\frac{\partial}{\partial z}}
+\newcommand{\ppx}{\frac{\partial^2}{\partial x^2}}
+\newcommand{\ppy}{\frac{\partial^2}{\partial y^2}}
+\newcommand{\ppz}{\frac{\partial^2}{\partial z^2}}
+\newcommand{\hess}{\operatorname{Hess}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\spl}{\operatorname{\mathfrak{sl}}}
+\newcommand{\spg}{\mathfrak{g}}
+\newcommand{\sph}{\mathfrak{h}}
+\newcommand{\spu}{\operatorname{\mathfrak{su}}}
+\newcommand{\spo}{\operatorname{\mathfrak{so}}}
+
+\begin{document}
+    \begin{theorem}
+        Suppose \(\mathfrak{g}\) is a semisimple lie algebra, then for any \(\mathfrak{g}\)-module \(V\) we find that \(V\) is completely reducible.
+    \end{theorem}
+    \begin{proof}
+        I will follow the proof in Humphrey's, this uses the clever observation that the case of codimension 1 is sufficient. Assume the result in codimension 1, then let \(0 \neq W \subsetneq V\) be a submodule. \(\hom(V,W)\) is a \(\mathfrak{g}\)-module with submodules
+        \begin{align}
+            \Lambda := \set{T \in \hom(V,W) \mid T\vert_W = \lambda \in k} \quad \Lambda_0 := \set{T \in \hom(V,W) \mid T\vert_W = 0}
+        \end{align}
+        to see these are submodules let \(\xi \in \mathfrak{g}\), \(T \in \hom(V,W)\) and \(w \in W\)
+        \begin{align}
+            (\xi.T)(w) \overset{\text{def}}{=} \xi.T(w) - T(\xi.w) = \lambda T(w) - T(\lambda w) = 0
+        \end{align}
+        Moreover it is immediate that \(\Lambda/\Lambda_0 \cong k\). Now the result in codimension \(1\) gives a decomposition of \(\Lambda\) into \(\mathfrak{g}\)-submodules \(\Lambda_0 \oplus kT\) with \(T\) chosen so that \(T\vert_W = 1\). It follows that \(V = \ker T \oplus W\), to conclude this gives reducibility we check that \(\ker T\) is a submodule, so let \(v \in \ker T\) and \(\xi \in \mathfrak{g}\), then
+        \begin{align}
+            T(\xi.v) \overset{\text{defn of hom}}{=} \xi.T(v) = \xi.0 = 0
+        \end{align}
+        so that \(\xi.v \in \ker T\).
+
+        To show the result holds for a codimension 1 submodule, we will first prove it in the case that \(W\) is irreducible: Let \(c_\phi\) be the Casimir element of \(\phi\), then \(c_\phi\) commutes with \(\phi(\mathfrak{g})\). Moreover, since \(V/W\) is one dimensional and \(\mathfrak{g}\) is semisimple, we have that \(\phi(\mathfrak{g}) = \phi([\mathfrak{g},\mathfrak{g}]) = [\phi(\mathfrak{g}),\phi(\mathfrak{g})] \subset \mathfrak{sl}(V)\) but in dimension \(1\) we have \(\mathfrak{sl}(V) = 0\) so that \(\phi(\xi): V \to W\) for all \(\xi \in \mathfrak{g}\). Since \(c_\phi\) is a sum of compositions of elements of \(\phi(\mathfrak{g})\) we conclude that \(c_\phi: V \to W\). Since \(W\) is irreducible by Schur's lemma the Casimir element acts as a scalar on \(W\) it follows the casimir element is of the form
+        \begin{align}
+            \begin{pmatrix} 0 & \mathbf{0} \\ \mathbf{*} & \frac{\dim \mathfrak{g}}{\dim W}1_{(n-1) \times (n-1)} \end{pmatrix}
+        \end{align}
+        thus has rank \(n-1\). Moreover \(\ker c_\phi\) is a \(\mathfrak{g}\) submodule since \(c_\phi\) commutes with \(\phi(\mathfrak{g})\) It follows that \(V = W \oplus \ker c_\phi\) is a decomposition.
+
+        Now we proceed to prove the result in the case of \(V\) having a codimension \(1\), but not necessarily reducible submodule \(W\), to do so we prove the following statement by induction:
+        
+        \emph{``Every (n-dimensional) \(\mathfrak{g}\) module \(V\) with a codimension 1 submodule \(W\) is completely reducible"}
+
+        The case \(n=2\) is trivial. Now by induction suppose that \(V\) is not irreducible, and has a submodule \(W\) of codimension 1. Then if \(W\) is irreducible we are done, if not \(W\) has an irreducible submodule \(W'\), it follows that \(W/W'\) has a codimension \(1\) submodule in \(V/W'\), which we denote \(\hat{W}/W'\), since \(\dim \hat{W} < \dim V\) we know that \(\hat{W} = W' \oplus X\) where \(X\) has dimension 1. Thus we get the decomposition
+        \begin{align}
+            V = W \oplus X
+        \end{align}
+        and \(W\) is decomposable by induction.
+    \end{proof}
+\end{document}

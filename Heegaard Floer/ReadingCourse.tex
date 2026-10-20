@@ -176,5 +176,24 @@
             The complex structure being induced by that of \(\Sigma\) should mean that \(J(T_*\mathbb{T}_\alpha) = \bigoplus_\alpha JT\) and that \(J\) commutes with the quotient action. This reduces the question of \(\mathbb{T}_\alpha\) being totally real to showing that each of \(\alpha_j\) being totally real. This is trivial since for \((v,p) \in T_* \alpha_j\) we have \(Jv\) is linearly independent from \(v\).
         \end{proof}
     \end{pb}
+    \begin{pb}
+        Show that
+        \begin{align}
+            \frac{H_1(\operatorname{Sym}^g(\Sigma))}{\mathbb{T}_\alpha \oplus \mathbb{T}_\beta} \cong \frac{H_1(\Sigma)}{[\alpha_j]_{j=1}^g, [\beta_j]_{j=1}^g} \cong H_1(Y,\mathbb{Z})
+        \end{align}
+        \begin{proof}
+            We use that \(\iota: \Sigma \hookrightarrow \operatorname{Sym}^g(\Sigma)\) by inclusion onto the first coordinate induces the isomorphism on homology, thus
+            \begin{align}
+                \frac{H_1(\Sigma)}{[\alpha_j]_{j=1}^g, [\beta_j]_{j=1}^g} \cong \frac{H_1(\operatorname{Sym}^g(\Sigma))}{\iota_*[\alpha_j]_{j=1}^g, \iota_*[\beta_j]_{j=1}^g}
+            \end{align}
+            A generator for \(\mathbb{T}_\alpha\) is of the form \(\set{z}^{j-1}\times \alpha_j \times \set{z}^{g-j} \simeq \alpha_j \times \set{z}^{g-1} = \iota(\alpha_j)\).
+
+            The second isomorphism follows from the Mayer Vietoris sequence
+            \begin{equation}\begin{tikzcd}
+                H_1(\Sigma) \arrow[r, "\iota"] &H_1(h^1) \oplus H_1(h^2) \arrow[r] &H_1(Y) \arrow[r] &H_0(\Sigma) \arrow[r, "\iota"] &H_0(h^1) \oplus H_0(h^2)
+            \end{tikzcd}\end{equation}
+            Note that the inclusion map on the level of connected components is injective, hence the diagonal map from \(H_1(Y)\) is zero, it follows that \(H_1(h^1) \oplus H_1(h^2) \twoheadrightarrow H_1(Y)\).
+        \end{proof}
+    \end{pb}
 
 \end{document}
