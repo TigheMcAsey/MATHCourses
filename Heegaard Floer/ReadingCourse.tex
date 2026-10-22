@@ -192,7 +192,16 @@
             \begin{equation}\begin{tikzcd}
                 H_1(\Sigma) \arrow[r, "\iota"] &H_1(h^1) \oplus H_1(h^2) \arrow[r] &H_1(Y) \arrow[r] &H_0(\Sigma) \arrow[r, "\iota"] &H_0(h^1) \oplus H_0(h^2)
             \end{tikzcd}\end{equation}
-            Note that the inclusion map on the level of connected components is injective, hence the diagonal map from \(H_1(Y)\) is zero, it follows that \(H_1(h^1) \oplus H_1(h^2) \twoheadrightarrow H_1(Y)\).
+            Note that the inclusion map on the level of connected components is injective, hence the diagonal map from \(H_1(Y)\) is zero, it follows that \(H_1(h^1) \oplus H_1(h^2) \twoheadrightarrow H_1(Y)\). Moreover \(H_1(Y) \cong H_1(h^1) \oplus H^1(h^2)/\operatorname{Im}\iota\) can be seen geometrically as \(H_1(h^1)/[\beta_j]_1^g \oplus H_1(h^2)/[\alpha_j]_1^g \cong \frac{H_1(\Sigma)}{[\alpha_j]_{j=1}^g, [\beta_j]_{j=1}^g}\).
+        \end{proof}
+    \end{pb}
+
+    \begin{pb}
+        Consider the genus \(1\) Heegaard diagram \(L(p,q)\) with \(\alpha,\beta\) isotoped to have \(p\) intersection points. Show that each of the intersection points \(\alpha \cap \beta\) have different equivalence classes.
+
+        \begin{proof}
+            Work in \(\mathbb{R}^2/\mathbb{Z}^2\) with \(b\) the curve having slope \(-p/q\). The cosets for intersection points are thus \((k(q/p),0)\) for \(k=0,\hdots,p-1\). Then taking two intersection points, \((k(q/p),0)\) and \((r(q/p),0)\) where we may assume \(k>r\) We find that the curve \(a\) connecting them lies in \(\mathbb{R} \times 0\), and we may choose the curve \(b\) to be \(b(t) = t\frac{(k-r)}{p}(q,p)\) It follows that \([b-a]\) corresponds to \((0,k-r) \in \mathbb{R}^2\)
+            But \((0,k-r) \neq 0 \in \frac{\mathbb{R}^2}{\mathbb{R} \times \set{0} \oplus \mathbb{R}(q,p)} \cong H_1(\Sigma)/[\alpha] + [\beta]\)
         \end{proof}
     \end{pb}
 

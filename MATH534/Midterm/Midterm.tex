@@ -1,0 +1,117 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[includeheadfoot]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+
+\fancyhf{}
+\lhead{MAT534 Midterm}
+\rhead{Tighe McAsey}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper, margin=1in}
+
+\theoremstyle{definition}
+\newtheorem{pb}{Question}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\numberwithin{example}{subsection}
+\numberwithin{proposition}{subsection}
+\usepackage{tikz-cd, stackengine}
+
+% Commands:
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\gen}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\pd}{\frac{\partial}{\partial x_j}}
+\newcommand{\px}{\frac{\partial}{\partial x}}
+\newcommand{\py}{\frac{\partial}{\partial y}}
+\newcommand{\pz}{\frac{\partial}{\partial z}}
+\newcommand{\ppx}{\frac{\partial^2}{\partial x^2}}
+\newcommand{\ppy}{\frac{\partial^2}{\partial y^2}}
+\newcommand{\ppz}{\frac{\partial^2}{\partial z^2}}
+\newcommand{\hess}{\operatorname{Hess}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\spl}{\operatorname{\mathfrak{sl}}}
+\newcommand{\spg}{\mathfrak{g}}
+\newcommand{\sph}{\mathfrak{h}}
+\newcommand{\spu}{\operatorname{\mathfrak{su}}}
+\newcommand{\spo}{\operatorname{\mathfrak{so}}}
+
+\begin{document}
+    \begin{pb}
+        \begin{enumerate}
+            \item Proposition 3.1b in Humphreys states if \(I\) is a solveable ideal of \(L\) such that \(L/I\) is solveable, then \(L\) is solveable. Since \(L/[L,L]\) is abelian by definition of \([L,L]\) and \([L,L]\) is nilpotent hence solveable we conclude by the proposition that \(L\) is solveable. \qed
+            \item We first note that \(\operatorname{ad}: L \to \mathfrak{gl}(L)\) is a homomorphism, to see this we employ the Jacobi identity
+            \begin{align}
+                [\operatorname{ad}_x,\operatorname{ad}_y](z) = \operatorname{ad}_x \operatorname{ad}_y(z) - \operatorname{ad}_y \operatorname{ad}_x(z) = [x,[y,z]] - [y,[x,z]] \overset{\text{Jacobi}}{=} [[x,y],z] = \operatorname{ad}_{[x,y]}
+            \end{align}
+            Thus by Humphreys Proposition 3.1(a) \(L\) being solveable implies \(\operatorname{ad}(L)\) is a solveable subalgebra of \(\mathfrak{gl}(L)\). Thus by Lie's theorem there exists a basis of \(L\) such that \(\operatorname{ad}(L) \subset \mathfrak{t}(F,\dim L)\) under the identification of \(\mathfrak{gl}(L)\) with \(\mathfrak{gl}(F,\dim L)\). In part 4 of this problem we show that \([\mathfrak{t},\mathfrak{t}] = \mathfrak{n}\) the subalgebra of strictly upper triangular matrices. Thus it follows that 
+            \begin{align}
+                \operatorname{ad}[L,L] = [\operatorname{ad}L,\operatorname{ad}L] \subset [\mathfrak{t},\mathfrak{t}] = \mathfrak{n}(F,\dim L) \label{adnilp}
+            \end{align}
+            Since elements of \(\mathfrak{n}(F,\dim L)\) are nilpotent, equation \eqref{adnilp} tells us that \([L,L]\) is ad-nilpotent, thus by Engel's theorem \([L,L]\) is nilpotent. \qed
+            \item Consider the nonabelian 2 dimensional Lie algebra \(L = \operatorname{span}_F(x,y)\) with relation \([x,y] = x\).
+            \begin{align}
+                L^{(1)} = \operatorname{span}_F\set{x}, \quad L^{(2)} \overset{\text{def}}{=} [\operatorname{span}_F\set{x},\operatorname{span}_F\set{x}] = 0
+            \end{align}
+            However the central series has \(L^1 = \operatorname{span}_F\set{x}\). It follows by induction that \(L^{k} = [L,L^{k-1}] = [L,\operatorname{span}_F\set{x}] = \operatorname{span}_F(x)\) for all \(k > 1\), hence \(L\) is not nilpotent. If you don't believe me that \(L\) is a lie algebra I give a calculation of the Jacobi identity.
+            \begin{align}
+                &[x,[x,y]] + [x,[y,x]] + [y,[x,x]] = [x,x] + [x,-x] + [y,0] = 0 + -[x,x] + 0 = 0 \\
+                &[y,[x,y]] + [x,[y,y]] + [y,[y,x]] = [y,x] + [x,0] + [y,-x] = [y,x] + 0 - [y,x] = 0
+            \end{align} \qed
+            \item Throughout this exercise I will denote \(\mathfrak{n}\) as the subset of strictly upper triangular matrices, and for \(k \geq 1\) I will denote \(\mathfrak{n}_k\) as the subset of matrices \(\set{\sum a_{ij}e_{ij}\mid a_{ij} \in F, j \geq i + k}\). I will first compute the lower central series:
+            
+            \emph{Claim 1.} \([L,L] \subset \mathfrak{n}\)
+
+            \emph{Claim 2.} \([L,\mathfrak{n}] \supset \mathfrak{n}\)
+
+            Claim 2 tells us in particular that \([L,L] \supset [L,\mathfrak{n}] \supset \mathfrak{n}\), so that using claim 1, \([L,L] = \mathfrak{n}\), it follows by induction and claim 1 that that \(L^k = [L,L^{k-1}] = [L,\mathfrak{n}] = \mathfrak{n}\) is the lower central series.
+
+            The derived series requires sharper claims:
+
+            \emph{Claim 3.} \([\mathfrak{n}_k,\mathfrak{n}_r] \subset \mathfrak{n}_{k+r}\)
+
+            \emph{Claim 4.} \([\mathfrak{n}_k,\mathfrak{n}_r] \supset \mathfrak{n}_{k+r}\)
+
+            Using claims 3 and 4 and the solution for the lower central series we get the following derived series (note that for \(k \geq n\) we have \(\mathfrak{n}_k = 0\)) \(L^{0} = \mathfrak{t}\), \(L^{1} = L^1 = \mathfrak{n}\) then by induction and using claims 3 and 4, we find for \(k > 1\) that \(L^{(k)} = [\mathfrak{n}_{2^{k-2}},\mathfrak{n}_{2^{k-2}}] = \mathfrak{n}_{2^{k-1}}\). \qed
+
+            \emph{Proof of Claim 1.} Let \(A = \sum a_{ij}e_{ij}, B = \sum b_{ij}e_{ij} \in L\) and let \(C = [A,B] = \sum c_{ij}e_{ij}\), then it suffices to show that \(c_{jj} = 0\) for each \(j\), this is straightforward since
+            \begin{align}
+                c_{jj} = \sum_k a_{jk}b_{kj} - b_{jk}a_{kj}
+            \end{align}
+            but then since \(a_{jk} = 0 = b_{jk}\) for \(k < j\) and \(b_{kj} = a_{kj} = 0\) for \(k > j\) we find that
+            \begin{align}
+                c_{jj} = a_{jj}b_{jj} - b_{jj}a_{jj} = 0
+            \end{align} \qed
+
+            \emph{Proof of Claim 2.} It suffices to show that \(e_{ij} \in [L,\mathfrak{n}]\) for all \(j > i\), so let \(j > i\) then \(e_{ii} \in L\) and \(e_{ij} \in \mathfrak{n}\) so that
+            \begin{align}
+                [e_ii,e_{ij}] = e_{ii}e_{ij} - e_{ij}e_{ii} = e_{ij} \in [L,\mathfrak{n}]
+            \end{align} \qed
+
+            \emph{Proof of Claim 3.} Let \(A = \sum a_{ij}e_{ij} \in \mathfrak{n}_s\) and \(B = \sum a_{ij}e_{ij} \in \mathfrak{n}_r\), it suffices to show that \(AB \in \mathfrak{n}_{s+r}\), because then by symmetry te same result will hold for \(BA\) and thus also their difference. So let \(AB = \sum c_{ij}e_{ij}\), it follows that
+            \begin{align}
+                c_{ij} = \sum_{k} a_{ik}b_{kj} \overset{A \in \mathfrak{n}_s}{=} \sum_{k \geq i +s} a_{ik}b_{kj} \overset{B \in \mathfrak{n}_r}{=} \sum_{j - r \geq k \geq i + s} a_{ik}b_{kj}
+            \end{align}
+            Thus the sum is only nonzero when \(j \geq i+ s + r\) thus \(c_{ij} = 0\) for all \(j < i + s + r\), this proves that \(AB \in \mathfrak{n}_{s+r}\). \qed
+
+            \emph{Proof of Claim 4.} It suffices to show that \(e_{ij} \in [\mathfrak{n}_s,\mathfrak{n}_r]\) whenever \(n \geq j \geq i + s + r\). Choose such an \(e_{ij}\), then \(e_{i,j-r} \in \mathfrak{n}_s\) and \(e_{j-r,j} \in \mathfrak{n}_r\) so that
+            \begin{align}
+                [e_{i,j-r},e_{j-r,j}] = e_{i,j-r}e_{j-r,j} - \underbrace{e_{j-r,j}e_{i,j-r}}_{=0 \text{ since }j > i} = e_{ij} \in [\mathfrak{n}_s,\mathfrak{n}_r]
+            \end{align}
+            \qed
+        \end{enumerate}
+    \end{pb}
+\end{document}
