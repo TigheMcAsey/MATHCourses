@@ -114,4 +114,53 @@
             \qed
         \end{enumerate}
     \end{pb}
+
+    \begin{pb}
+        \begin{enumerate}
+            \item We first compute the matrices of \(\operatorname{ad}_x \tand \operatorname{ad}_y\) in \(\mathfrak{gl}(L)\) with respect to the (ordered) basis \(\set{x,y}\), this gives us
+            \begin{align}
+                \operatorname{ad}_x = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \tand \operatorname{ad}_y = \begin{pmatrix} 0 & 0 \\ -1 & 0 \end{pmatrix}
+            \end{align}
+            It follows that \(\operatorname{ad}_x^2 = \operatorname{ad}_x\), \(\operatorname{ad}_y^2 = 0\), \(\operatorname{ad}_x \operatorname{ad}_y = \operatorname{ad}_y\) and \(\operatorname{ad}_y \operatorname{ad}_x = 0\), by taking the trace of these matrices we directly read off the killing form: \(\kappa(x,x) = 1\), \(\kappa(y,y) = 0\) and \(\kappa(x,y) = 0 = \kappa(y,x)\) thus relative to this basis the killing form ahs the following matrix
+            \begin{align}
+                \kappa = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+            \end{align}
+            We recall that \(\operatorname{Rad}(\kappa) = \set{z \in L \mid \kappa(z,-) \equiv 0}\). Our prior computation shows that \(\operatorname{Rad}(\kappa) = \operatorname{span}_F\set{y} = [L,L]\). \qed
+
+            \item Since the identity matrix \(1_{n\times n} \not \in \mathfrak{sl}(n)\) and \(\dim \mathfrak{sl}(n) = n^2 - 1\) (see Humphreys section 1.1), we know that \(\operatorname{span}_F\set{1_{n\times n}} \oplus \mathfrak{sl}(n)\) is a subspace of \(\mathfrak{gl}(n)\) having dimension \(n^2 - 1 + 1 = n^2 = \dim \mathfrak{gl}(n)\), hence is the entire vectorspace. Moreover if \(x,y \in \mathfrak{gl}(n)\) symmetry of trace gives us that 
+            \begin{align}
+                \operatorname{tr}([x,y]) = \operatorname{tr}(xy) - \operatorname{tr}(yx) = \operatorname{tr}(xy) -\operatorname{tr}(xy) = 0
+            \end{align}
+            in particular this holds for \(x \in \mathfrak{sl}(n)\) so that \(\mathfrak{sl}(n)\) is an ideal. Thus by part \(4\) of this problem, for \(x,y \in \mathfrak{sl}(n)\) we have \(\kappa_{\mathfrak{sl}(n)}(x,y) = \kappa_{\mathfrak{gl}(n)}(x,y)\) thus it suffices to compute the latter with respect to the basis \(\set{e_{ij}}\) for \(\mathfrak{gl}(V)\). Moreover, since \(\kappa\) is bilinear and trace is linear, it will suffice to show the identity holds on the basis \(\set{e_{ij}\mid i \neq j} \cup \set{e_{ii} - e_{i+1,i+1}}\) of \(\mathfrak{sl}(n)\). Symmetry of \(\kappa\) and trace imply that the following 3 cases are sufficient
+
+            \emph{Case 1. \(x = e_{ij}, y = e_{kl}\):}
+
+            \emph{Case 2. \(x = e_{ii} - e_{i+1,i+1}, y = e_{k\ell}\):}
+
+            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = x = e_{jj} - e_{j+1,j+1}\):}
+            
+            \item By theorem 5.1, it suffices to show that the killing form is non-degenerate, i.e. every \(x \in \mathfrak{sl}(n)\) has some \(y \in \mathfrak{sl}(n)\) such that \(\kappa(x,y) = 2n \operatorname{tr}(xy) \neq 0\), write \(x = \sum x_{ij}e_{ij}\), then if \(x_{ij} \neq 0\) for some \(i \neq j\), then
+            \begin{align}
+                xe_{ji} = \sum_{k,\ell} x_{k,\ell}e_{k\ell}e_{ji} = \sum_k x_{kj}e_{ki}
+            \end{align}
+            So that \(\operatorname{tr}(xe_{ji}) = x_{ij} \neq 0\). Otherwise we can assume \(x\) is diagonal, then since \(x \neq 0\) there is some diagonal entry \(x_{ii} \neq 0\), furthermore since \(\operatorname{tr}(x)=0\) there must be some other diagonal entry \(x_{jj}\) with \(x_{jj} \neq x_{ii}\). It follows that
+            \begin{align}
+                x(e_{ii} - e_{jj}) = x_{ii}e_{ii} - x_{jj}e_{jj}
+            \end{align}
+            and \(\operatorname{tr}(x(e_{ii} - e_{jj})) = x_{ii} - x_{jj} \neq 0\). Thus in either case we can choose \(y = e_{ji}\) or \(y = (e_{ii} - e_{jj})\) so that \(\operatorname{tr}(xy) \neq 0\). Now applying the previous subpart we find that
+            \begin{align}
+                \kappa(x,y) = 2n \operatorname{tr}(xy) \neq 0
+            \end{align}
+            We conclude that the killing form is nondegenerate and thus \(\mathfrak{sl}(n)\) is semisimple by Humphreys Theorem 5.1. \qed
+
+            \item Since \(I \subset L\) is a subspace, it has a compliment \(S\) satisfying \(L = I \oplus S\) as a vector space. We may take \(v_1,\hdots,v_r\) to be a basis for \(I\) and \(v_{r+1},\hdots, v_n\) to be a basis for \(S\). Whence any element of \(\mathfrak{gl}(L)\) can be written in the form \(\sum a_{ij}e_{ij}\) for \(a_{ij} \in F\) and \(e_{ij}(v_k) = \delta_{jk}v_i\). Now let \(x,y \in I\), since \(I\) is an ideal we know that \(\operatorname{ad}_x,\operatorname{ad}_y: L \to I\), so in particular so does their compositon. In terms of our basis this tells us that for \(\operatorname{ad}_x = \sum x_{ij}e_{ij}, \operatorname{ad}_y = \sum y_{ij}e_{ij} \tand \operatorname{ad}_x \circ \operatorname{ad}_y = \sum a_{ij}e_{ij}\) we have \(x_{ij} = y_{ij} = a_{ij} = 0\) for \(i > r\), whence in particular \(e_{ii} = 0\) for \(i = r+1,\hdots,n\) it follows that
+            \begin{align}
+                \kappa(x,y) &= \operatorname{tr}(\operatorname{ad}_x\circ \operatorname{ad}_y) = \sum_1^n a_{ii} = \sum_1^r a_{ii} \\
+                &= \sum_{i = 1}^r \sum_{k=1}^n x_{ik}y_{ki} = \sum_{i=1}^r\sum_{k=1}^r x_{ik}y_{ki} = \operatorname{tr}(\operatorname{ad}_x\vert_I \circ \operatorname{ad}_y \vert_I) = \kappa_I(x,y)
+            \end{align}
+            So for any \((x,y) \in I \times I\) we have \(\kappa(x,y) = \kappa_I(x,y)\), this of course implies that \(\kappa\vert_{I\times I} = \kappa_I\). \qed
+            
+            Now to see that this result does not hold for subalgebras consider the nonabelian subalgebra of dimension 2 given in teh first part of the question, and consider the subalgebra \(H = \operatorname{span}_F\set{x}\), we computed in part 1 that \(\kappa(x,x) = 1\) whence \(\kappa\vert_{H \times H}\) has matrix \(1\), but since \(H\) is abelian \(\operatorname{ad}_x\) acts as zero on \(H\) so that \(\kappa_H(x,x) = 0\), so that \(\kappa_H\) has matrix \(0\). \qed
+        \end{enumerate}
+    \end{pb}
 \end{document}
