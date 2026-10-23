@@ -235,13 +235,26 @@
             \end{align}
             To compute the Cartan matrix we use the computations of the elements \(t_\alpha\) from the fourth subpart, as these are needed to take inner products.
 
-            \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claim:
+            \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claims:
             
-            \emph{Claim.} If \(h,h' \in H\) then \(\kappa(h,h') = 6 \operatorname{tr}(hh')\)
+            \emph{Claim 1.} If \(h,h' \in H\) then \(\kappa(h,h') = 6 \operatorname{tr}(hh')\)
 
-            Using the claim we can compute the following:
+            \emph{Claim 2.} Let \(\alpha \in \Phi\) then take root vectors \(x_\alpha \in L_\alpha\), \(y_\alpha \in L_{-\alpha}\) and \(h \in \Phi\), then
+            \begin{align}
+                \kappa(x_\alpha,y_\alpha) = \frac{6 \operatorname{tr}(h[x_\alpha,y_\alpha])}{\alpha(h)}
+            \end{align}
 
-            \textcolor{red}{TODO: Prove the claim}
+            Using the claims we find that for \(\alpha \in \Phi\)
+            \begin{align}
+                t_\alpha = \frac{[x_\alpha,y_\alpha]}{\kappa(x_\alpha,y_\alpha)} = \frac{\alpha(h_1)[x_\alpha,y_\alpha]}{6 \operatorname{tr}(h_1 [x_\alpha,y_\alpha])}
+            \end{align}
+            Thus we compute each \([x_\alpha,y_\alpha]\) and each \(h_1[x_\alpha,y_\alpha]\) below:
+            \begin{align}
+                [x_{\alpha_1},y_{\alpha_1}] &= [e_{12} - e_{43}, e_{21} - e_{34}] = e_{11} + e_{44} - e_{22} - e_{33} = h_1 - h_2 \\
+                [x_{\alpha_2},y_{\alpha_2}] &=
+            \end{align}
+
+            \textcolor{red}{TODO: Prove the claims}
         \end{enumerate}
     \end{pb}
 \end{document}
