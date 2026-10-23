@@ -133,11 +133,41 @@
             \end{align}
             in particular this holds for \(x \in \mathfrak{sl}(n)\) so that \(\mathfrak{sl}(n)\) is an ideal. Thus by part \(4\) of this problem, for \(x,y \in \mathfrak{sl}(n)\) we have \(\kappa_{\mathfrak{sl}(n)}(x,y) = \kappa_{\mathfrak{gl}(n)}(x,y)\) thus it suffices to compute the latter with respect to the basis \(\set{e_{ij}}\) for \(\mathfrak{gl}(V)\). Moreover, since \(\kappa\) is bilinear and trace is linear, it will suffice to show the identity holds on the basis \(\set{e_{ij}\mid i \neq j} \cup \set{e_{ii} - e_{i+1,i+1}}\) of \(\mathfrak{sl}(n)\). Symmetry of \(\kappa\) and trace imply that the following 3 cases are sufficient
 
-            \emph{Case 1. \(x = e_{ij}, y = e_{kl}\):}
+            \emph{Case 1. \(x = e_{ij}, y = e_{kl}\):} We first compute the action of \(\operatorname{ad}_x \circ \operatorname{ad}_y\) on each \(e_{st} \in \mathfrak{gl}(n)\).
+            \begin{align}
+                [e_{ij},[e_{k,\ell},e_{st}]] = [e_{ij},\delta_{\ell s}e_{kt} - \delta_{tk}e_{s\ell}] = \delta_{jk}\delta_{\ell s}e_{it} - \delta_{js}\delta_{tk}e_{i\ell} + \delta_{\ell i}\delta_{tk}e_{sj} - \delta_{ti}\delta_{\ell s}e_{kj}
+            \end{align}
+            When we take the trace of \(\operatorname{ad}_x \operatorname{ad}_y\) we will sum over \(s,t\) the coefficients of the diagonal entries, so that the terms \(e_{ab}\) in the above sum are replaced with \(\delta_{as}\delta_{bt}\), writing this explicitly we get
+            \begin{align}
+                \operatorname{tr}(\operatorname{ad}_x \operatorname{ad}_y) &= \sum_{s,t} \delta_{jk}\delta_{\ell s}\delta_{is} - \delta_{js}\delta_{tk}\delta_{is}\delta_{\ell t} + \delta_{\ell i}\delta_{tk}\delta_{jt} - \delta_{ti}\delta_{\ell s}\delta_{ks}\delta_{jt} \\
+                &= \sum_{s,t} \delta_{jk}\delta_{\ell s}\delta_{is} - \delta_{ij}\delta_{tk}\delta_{is}\delta_{\ell t} + \delta_{\ell i}\delta_{tk}\delta_{jt} - \delta_{ti}\delta_{\ell s}\delta_{k\ell}\delta_{jt} \\
+                &= \sum_{s,t} \delta_{jk}\delta_{\ell s}\delta_{is} - \underbrace{\delta_{ij}\delta_{tk}\delta_{is}\delta_{\ell t}}_{=0 \text{ since } i \neq j} + \delta_{\ell i}\delta_{tk}\delta_{jt} - \underbrace{\delta_{ti}\delta_{\ell s}\delta_{k\ell}\delta_{jt}}_{=0 \text{ since } k \neq \ell} \\
+                &= \sum_{s,t} \delta_{jk}\delta_{i \ell}\delta_{\ell s} + \sum_{s,t} \delta_{jk}\delta_{i\ell} \delta_{jt} \\
+                &= \sum_{\substack{1 \leq t \leq n \\ s = \ell}}\delta_{jk}\delta_{i \ell} + \sum_{\substack{1 \leq s \leq n \\ t = j}} \delta_{jk}\delta_{i\ell} \\
+                &= 2n \delta_{jk}\delta_{i\ell} \\
+                &= 2n \operatorname{tr}(e_{ij}e_{k\ell}) \\
+                &= 2n \operatorname{tr}(xy)
+            \end{align}
 
-            \emph{Case 2. \(x = e_{ii} - e_{i+1,i+1}, y = e_{k\ell}\):}
+            \emph{Case 2. \(x = e_{ii} - e_{i+1,i+1}, y = e_{k\ell}\):} Similarly to the above we first compute the action of \(\operatorname{ad}_x \circ \operatorname{ad}_y\) on each \(e_{st}\).
+            \begin{align}
+                [e_{ii} - e_{i+1,i+1},[e_{k\ell},e_{s,t}]] &= [e_{ii} - e_{i+1,i+1},\delta_{\ell s}e_{kt} - \delta_{tk}e_{s\ell}] \\ 
+                &= \delta_{\ell s}\delta_{ik}e_{it} - \delta_{is}\delta_{tk}e_{i\ell} - \delta_{i+1,k}\delta_{\ell s}e_{i+1,t} + \delta_{i+1,s}\delta_{tk}e_{i+1,\ell} \\
+                &- \delta_{ti}\delta_{\ell s}e_{ki} + \delta_{i \ell}\delta_{tk}e_{si} + \delta_{t,i+1}\delta_{\ell s} e_{k,i+1} - \delta_{\ell,i+1}\delta_{tk}e_{s,i+1}
+            \end{align}
+            We use the same reasoning as case 1 to compute the trace being
+            \begin{align}
+                \operatorname{tr}(\operatorname{ad}_x \operatorname{ad}_y) = &\sum_{s,t} \delta_{\ell s}\delta_{ik}\delta_{is} - \delta_{is}\delta_{tk}\delta_{is}\delta_{\ell t} - \delta_{i+1,k}\delta_{\ell s}\delta_{i+1,s} + \delta_{i+1,s}\delta_{tk}\delta_{i+1,s}\delta_{\ell t}\\
+                +&\sum_{s,t} -\delta_{ti}\delta_{\ell s}\delta_{ks}\delta_{it} + \delta_{i \ell}\delta_{tk}\delta_{it} + \delta_{t,i+1}\delta_{\ell s} \delta_{k,s}\delta_{i+1,t} - \delta_{\ell,i+1}\delta_{tk}\delta_{i+1,t} \\
+                = &\sum_{s,t} \underbrace{\delta_{\ell s}\delta_{ik}\delta_{is}}_{0 \text{ since } \ell \neq k} - \underbrace{\delta_{tk}\delta_{is}\delta_{\ell t}}_{0 \text{ since } \ell \neq k} - \underbrace{\delta_{i+1,k}\delta_{\ell s}\delta_{i+1,s}}_{0 \text{ since } \ell \neq k} + \underbrace{\delta_{i+1,s}\delta_{tk}\delta_{\ell,t}}_{0 \text{ since } k \neq \ell} \\
+                +&\sum_{s,t} -\underbrace{\delta_{\ell s}\delta_{ks}\delta_{it}}_{0 \text{ since } \ell \neq k} + \underbrace{\delta_{i \ell}\delta_{tk}\delta_{it}}_{0 \text{ since } \ell \neq k} + \underbrace{\delta_{\ell s} \delta_{ks}\delta_{i+1,t}}_{0 \text{ since } \ell \neq k} - \underbrace{\delta_{\ell,i+1}\delta_{tk}\delta_{i+1,t}}_{0 \text{ since } \ell \neq k} \\
+                = &0 \\
+                = &2n(\underbrace{\delta_{i\ell}\delta_{ik}}_{0 \text{ since } \ell \neq k} - \underbrace{\delta_{i+1,\ell}\delta_{i+1,k}}_{0 \text{ since } \ell \neq k}) \\
+                = &2n\operatorname{tr}((e_{ii} - e_{i+1,i+1})e_{k\ell}) \\
+                = &2n \operatorname{tr}(xy)
+            \end{align}
 
-            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = x = e_{jj} - e_{j+1,j+1}\):}
+            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = x = e_{jj} - e_{j+1,j+1}\):} \textcolor{red}{TODO}
             
             \item By theorem 5.1, it suffices to show that the killing form is non-degenerate, i.e. every \(x \in \mathfrak{sl}(n)\) has some \(y \in \mathfrak{sl}(n)\) such that \(\kappa(x,y) = 2n \operatorname{tr}(xy) \neq 0\), write \(x = \sum x_{ij}e_{ij}\), then if \(x_{ij} \neq 0\) for some \(i \neq j\), then
             \begin{align}
@@ -161,6 +191,26 @@
             So for any \((x,y) \in I \times I\) we have \(\kappa(x,y) = \kappa_I(x,y)\), this of course implies that \(\kappa\vert_{I\times I} = \kappa_I\). \qed
             
             Now to see that this result does not hold for subalgebras consider the nonabelian subalgebra of dimension 2 given in teh first part of the question, and consider the subalgebra \(H = \operatorname{span}_F\set{x}\), we computed in part 1 that \(\kappa(x,x) = 1\) whence \(\kappa\vert_{H \times H}\) has matrix \(1\), but since \(H\) is abelian \(\operatorname{ad}_x\) acts as zero on \(H\) so that \(\kappa_H(x,x) = 0\), so that \(\kappa_H\) has matrix \(0\). \qed
+        \end{enumerate}
+    \end{pb}
+
+    \begin{pb}
+        \begin{enumerate}
+            \item Since toral subalgebras are abelian (Humphreys Lemma 8.1) it suffices to show that \(H\) is maximal abelian. Using the computation from Humphreys section 1.2 we know that matrices in \(\mathfrak{sp}(4)\) are of the following form
+            \begin{align}
+                \begin{pmatrix} A & B \\ C & -A^t \end{pmatrix}
+            \end{align}
+            where \(A,B,C \in \mathfrak{gl}(2)\) and \(B,C\) are symmetric. Now we take \(x = \operatorname{Diag}(1,1,-1,-1) \in H\) and compute
+            \begin{align}
+                \left[x,\begin{pmatrix} A & B \\ C & -A^t \end{pmatrix}\right] = \begin{pmatrix} 0 & 2B \\ -2C & 0 \end{pmatrix}
+            \end{align}
+            so that an abelian subalgebra containing \(H\) must only contain matrices of the form \((A, 0 ; 0, -A^t)\). We will be done once we show that \(A\) need be diagonal for such an element to be included in \(H\). So choose a non-diagonal matrix \(A = (a,b;c,d)\) for \(b,c\) not both zero, then \(x = \operatorname{Diag}(1,-1,-1,1) \in H\) and
+            \begin{align}
+                \left[x,\begin{pmatrix} A & 0 \\ 0 & -A^t \end{pmatrix}\right] = \begin{pmatrix} \begin{pmatrix} 0 & 2b \\ -2c & 0 \end{pmatrix} & 0 \\ 0 & \begin{pmatrix} 0 & 2c \\ -2b & 0 \end{pmatrix} \end{pmatrix} \neq 0
+            \end{align}
+            It follows that any abelian subalgebra containing \(H\) contains only diagonal matrices, but \(H\) already contains all the diagonal matrices in \(\mathfrak{sp}(2)\) this shows that \(H\) is maximal abelian and thus maximal toral by Humphreys Lemma 8.1. \qed
+
+            \item 
         \end{enumerate}
     \end{pb}
 \end{document}
