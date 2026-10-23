@@ -246,13 +246,31 @@
 
             Using the claims we find that for \(\alpha \in \Phi\)
             \begin{align}
-                t_\alpha = \frac{[x_\alpha,y_\alpha]}{\kappa(x_\alpha,y_\alpha)} = \frac{\alpha(h_1)[x_\alpha,y_\alpha]}{6 \operatorname{tr}(h_1 [x_\alpha,y_\alpha])}
+                t_\alpha = \frac{[x_\alpha,y_\alpha]}{\kappa(x_\alpha,y_\alpha)} = \frac{\alpha(h)[x_\alpha,y_\alpha]}{6 \operatorname{tr}(h [x_\alpha,y_\alpha])} \label{taformula}
             \end{align}
-            Thus we compute each \([x_\alpha,y_\alpha]\) and each \(h_1[x_\alpha,y_\alpha]\) below:
+            Thus we compute each \([x_\alpha,y_\alpha]\), \(h[x_\alpha,y_\alpha]\) and \(\alpha(h)\) where \(h \in \set{h_1, h_2}\) so that \(\alpha(h) \neq 0\) below:
             \begin{align}
                 [x_{\alpha_1},y_{\alpha_1}] &= [e_{12} - e_{43}, e_{21} - e_{34}] = e_{11} + e_{44} - e_{22} - e_{33} = h_1 - h_2 \\
-                [x_{\alpha_2},y_{\alpha_2}] &=
+                [x_{\alpha_2},y_{\alpha_2}] &= [e_{24},e_{42}] = e_{22} - e_{44} = h_2 \\
+                [x_{\alpha_1 + \alpha_2},y_{\alpha_1 +\alpha_2}] &= [e_{14} + e_{23},e_{32} + e_{41}] = e_{11} + e_{22} - e_{33} - e_{44} = h_1 + h_2 \\
+                [x_{2 \alpha_1 + \alpha_2},y_{2 \alpha_1 + \alpha_2}] &= [e_{13},e_{31}] = e_{11} - e_{33} = h_1 \\
+                h_1[x_{\alpha_1},y_{\alpha_1}] &= e_{11} + e_{33} \\
+                h_2[x_{\alpha_2},y_{\alpha_2}] &= e_{22} + e_{44} \\
+                h_1[x_{\alpha_1 + \alpha_2},y_{\alpha_1 + \alpha_2}] &= e_{11} + e_{33} \\
+                h_1[x_{2 \alpha_1 + \alpha_2},y_{2 \alpha_1 + \alpha_2}] &= e_{11} + e_{33} \\
+                \alpha_1(h_1) &= 1 \\
+                \alpha_2(h_2) &= 2 \\
+                (\alpha_1 + \alpha_2)(h_1) &= 1 \\
+                (2 \alpha_1 + \alpha_2)(h_1) &= 2
             \end{align}
+            Whence we use the formula from equation \eqref{taformula} to compute each \(t_\alpha\):
+            \begin{align}
+                t_{\alpha_1} &= \frac{\alpha_1(h_1)(h_1 - h_2)}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{12}(h_1 - h_2) \\
+                t_{\alpha_2} &= \frac{\alpha_2(h_2)h_2}{6 \operatorname{tr}(e_{22} + e_{44})} = \frac16 h_2 \\
+                t_{\alpha_1 + \alpha_2} &= \frac{(\alpha_1 + \alpha_2)(h_1)(h_1 + h_2)}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{12}(h_1 + h_2) \\
+                t_{2 \alpha_1 + \alpha_2} &= \frac{(2 \alpha_1 + \alpha_2)(h_1)h_1}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{6}h_1
+            \end{align}
+            Now to compute the coroots, we use Claim 1 to compute 
 
             \textcolor{red}{TODO: Prove the claims}
         \end{enumerate}
