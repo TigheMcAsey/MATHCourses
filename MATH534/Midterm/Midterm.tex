@@ -233,7 +233,22 @@
             \begin{align}
                 \Phi = \set{\pm \alpha_1, \pm \alpha_2, \pm (\alpha_1 + \alpha_2), \pm (2 \alpha_1 + \alpha_2)}
             \end{align}
-            To compute the Cartan matrix we use the computations of the elements \(t_\alpha\) from the fourth subpart, as these are needed to take inner products.
+            To compute the Cartan matrix we use the computations of the elements \(t_\alpha\) from the fourth subpart, as these are needed to take inner products. Now, the definition of \((\alpha,\beta)\) for \(\alpha,\beta \in \Phi\) is given in section 8.5 of Humphreys as \((\alpha,\beta) = \kappa(t_\alpha,t_\beta)\), and moreover \(\gen{\alpha,\beta} := \frac{2(\alpha,\beta)}{(\alpha,\alpha)}\) in Humphreys 9.1. The Cartan matrix as defined in Humphreys 11.1 is the matrix \(\sum_{i,j}\gen{\alpha_i,\alpha_j}e_{ij}\) summing over the simple roots. Since we computed \(t_{\alpha_1},t_{\alpha_2}\) in the subsequent subpart of the question we can use Claim 1 (from part 4 of this question) to compute \((\alpha_i,\alpha_j)\) for \((i,j) \in \set{1,2}^2\). In fact we already computed the case \(i = j\) when computing the coroots.
+            \begin{align}
+                (\alpha_1,\alpha_1) &\overset{\eqref{firstinnerprod}}{=} \frac{1}{6} \\
+                (\alpha_2,\alpha_2) &\overset{\eqref{secondinnerprod}}{=} \frac13 \\
+                (\alpha_2,\alpha_1) = (\alpha_1,\alpha_2) &= 6 \operatorname{tr}(t_{\alpha_1},t_{\alpha_2}) = -\frac{1}{12} \\
+            \end{align}
+            We plug these in to compute \(\gen{\alpha_i,\alpha_j}\), where it is immediate from the definition that when \(i = j\) this has value \(2\), so in the case of \(i \neq j\):
+            \begin{align}
+                \gen{\alpha_1,\alpha_2} &= -\frac26/\frac16 = -2 \\
+                \gen{\alpha_2,\alpha_1} &= -\frac26/\frac13 = -1
+            \end{align}
+            Thus we compute the Cartan matrix as:
+            \begin{align}
+                \begin{pmatrix} 2 & -2 \\ -1 & 2 \end{pmatrix}
+            \end{align}
+
 
             \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claims:
             
@@ -270,7 +285,21 @@
                 t_{\alpha_1 + \alpha_2} &= \frac{(\alpha_1 + \alpha_2)(h_1)(h_1 + h_2)}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{12}(h_1 + h_2) \\
                 t_{2 \alpha_1 + \alpha_2} &= \frac{(2 \alpha_1 + \alpha_2)(h_1)h_1}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{6}h_1
             \end{align}
-            Now to compute the coroots, we use Claim 1 to compute 
+            Now to compute the coroots, we use Claim 1 to compute \(\kappa(t_\alpha,t_\alpha)\) for each \(\alpha\).
+            \begin{align}
+                \kappa(t_{\alpha_1},t_{\alpha_1}) &= 24/12^2 = \frac16 \label{firstinnerprod} \\
+                \kappa(t_{\alpha_2},t_{\alpha_2}) &= \frac{12}{6^2} = \frac13 \label{secondinnerprod} \\
+                \kappa(t_{\alpha_1 + \alpha_2},t_{\alpha_1 + \alpha_2}) &= \frac{24}{12^2} = \frac16 \\
+                \kappa(t_{2 \alpha_1 + \alpha_2},t_{2 \alpha_1 + \alpha_2}) &= 12/6^2 = \frac13
+            \end{align}
+            Whence we compute the coroots from the given formula:
+            \begin{align}
+                h_{\alpha_1} &= h_1 - h_2 \\
+                h_{\alpha_2} &= h_2 \\
+                h_{\alpha_1 + \alpha_2} &= h_1 + h_2 \\
+                h_{2 \alpha_1 + \alpha_2} &= h_1
+            \end{align}
+            \textcolor{red}{TODO: Show the coroot system is of type \(B_2\)}
 
             \textcolor{red}{TODO: Prove the claims}
         \end{enumerate}
