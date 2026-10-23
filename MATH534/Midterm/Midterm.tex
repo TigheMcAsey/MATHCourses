@@ -167,7 +167,7 @@
                 = &2n \operatorname{tr}(xy)
             \end{align}
 
-            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = x = e_{jj} - e_{j+1,j+1}\):} \textcolor{red}{TODO}
+            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = e_{jj} - e_{j+1,j+1}\):} \textcolor{red}{TODO}
             
             \item By theorem 5.1, it suffices to show that the killing form is non-degenerate, i.e. every \(x \in \mathfrak{sl}(n)\) has some \(y \in \mathfrak{sl}(n)\) such that \(\kappa(x,y) = 2n \operatorname{tr}(xy) \neq 0\), write \(x = \sum x_{ij}e_{ij}\), then if \(x_{ij} \neq 0\) for some \(i \neq j\), then
             \begin{align}
@@ -210,7 +210,38 @@
             \end{align}
             It follows that any abelian subalgebra containing \(H\) contains only diagonal matrices, but \(H\) already contains all the diagonal matrices in \(\mathfrak{sp}(2)\) this shows that \(H\) is maximal abelian and thus maximal toral by Humphreys Lemma 8.1. \qed
 
-            \item 
+            \item We take the basis \(h_1 = e_{11} - e_{33}\) and \(h_2 = e_{22} - e_{44}\) for \(H\). The roots space decomposition is as follows:
+            \begin{align}
+                L_{\beta_1} &= \operatorname{span}_F\set{e_{12} - e_{43}}, \beta_1(h_1) = 1, \beta_1(h_2) = -1 \\
+                L_{\beta_2} &= \operatorname{span}_F\set{e_{21} - e_{34}}, \beta_2(h_1) = -1, \beta_2(h_2) = 1 \text{ so that } \beta_2 = -\beta_1 \\
+                L_{\beta_3} &= \operatorname{span}_F\set{e_{14} + e_{23}}, \beta_3(h_1) = 1, \beta_3(h_2) = 1 \\
+                L_{\beta_4} &= \operatorname{span}_F\set{e_{32} + e_{41}}, \beta_4(h_1) = -1, \beta_4(h_2) = -1 \text{ so that } \beta_4 = -\beta_3 \\
+                L_{\beta_5} &= \operatorname{span}_F\set{e_{13}}, \beta_5(h_1) = 2, \beta_5(h_2) = 0 \\
+                L_{\beta_6} &= \operatorname{span}_F\set{e_{31}}, \beta_6(h_1) = -2, \beta_6(h_2) = 0 \text{ so that } \beta_6 = -\beta_5\\
+                L_{\beta_7} &= \operatorname{span}_F\set{e_{24}}, \beta_7(h_1) = 0, \beta_7(h_2) = 2 \\
+                L_{\beta_8} &= \operatorname{span}_F\set{e_{42}}, \beta_8(h_1) = 0, \beta_8(h_2) = -2 \text{ so that } \beta_8 = -\beta_7
+            \end{align}
+            Writing explicitly the roots as linear functionals let \(A = \operatorname{Diag}(a,b,-a,-b) \in H\), then
+            \begin{align}
+                \beta_1(A) &= a - b = -\beta_2(A) \\
+                \beta_3(A) &= a + b = -\beta_4(A) \\
+                \beta_5(A) &= 2a = -\beta_6(A) \\
+                \beta_7(A) &= 2b = -\beta_8(A)
+            \end{align} \qed
+
+            \item Take \(\alpha_1 = \beta_1\) in the previous subpart and \(\alpha_2 = \beta_7\), this lets us rewrite the root system as
+            \begin{align}
+                \Phi = \set{\pm \alpha_1, \pm \alpha_2, \pm (\alpha_1 + \alpha_2), \pm (2 \alpha_1 + \alpha_2)}
+            \end{align}
+            To compute the Cartan matrix we use the computations of the elements \(t_\alpha\) from the fourth subpart, as these are needed to take inner products.
+
+            \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claim:
+            
+            \emph{Claim.} If \(h,h' \in H\) then \(\kappa(h,h') = 6 \operatorname{tr}(hh')\)
+
+            Using the claim we can compute the following:
+
+            \textcolor{red}{TODO: Prove the claim}
         \end{enumerate}
     \end{pb}
 \end{document}
