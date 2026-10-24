@@ -251,9 +251,9 @@
                 \begin{pmatrix} 2 & -2 \\ -1 & 2 \end{pmatrix}
             \end{align}
             Now it is trivial to compute the Dynkin diagram of \(\Phi\) by using the procedure described in Humphreys 11.2, since \(\dim \operatorname{span}_F \Phi = 2\) the number of simple roots we start with two vertices, and draw \(\gen{\alpha_1,\alpha_2}\gen{\alpha_2,\alpha_1} = (-1)(-2) = 2\) lines between them. Now all that remains is to draw an arrow towards the shorter root, in this case \((\alpha_1,\alpha_1) = \frac16 < \frac13 = (\alpha_2,\alpha_2)\) so the arrow is from \(\alpha_2\) to \(\alpha_1\), the diagram given from this procedure is drawn below (I am using the Dynkin Diagrams tikz package):
-            \begin{equation*}
-                \dynkin[scale = 4] C2
-            \end{equation*}
+            \begin{align}
+                \dynkin[scale = 4] C2 \label{C2}
+            \end{align}
             Which is of type C2. \qed
 
             \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claims:
@@ -317,29 +317,44 @@
             \end{align}
             Thus we get cartan matrix for \(\check{\Phi}\):
             \begin{align}
-                \begin{pmatrix} 2 & -1 \\ -2 & 2 \end{pmatrix}
+                \begin{pmatrix} 2 & -1 \\ -2 & 2 \end{pmatrix} \label{cartandual}
             \end{align}
             Then the product of the off diagonal entries is the same as the original cartan matrix, and \(\dim \operatorname{span}_F(\check{\Phi}) = 2\) so we get the same Dynkin diagram appart from \((\check{\alpha}_1,\check{\alpha}_1) = 12^2(\alpha_1,\alpha_1) = 24 > 12 = 6^2(\alpha_2,\alpha_2) = (\check{\alpha}_2,\check{\alpha}_2)\) i.e. the arrow is reversed. Thus the Dynkin diagram is
             \begin{align}
-                \dynkin[scale=4] B2
+                \dynkin[scale=4] B2 \label{B2}
             \end{align}
             Which is of type B2. \qed
 
             \textcolor{red}{TODO: Prove the claims}
 
-            \item By Humphrey's theorem 14.2 (and the preceding discussion) an isomorphism of root systems induces an isomorphism of simple lie algebras, in order to apply this we first show that \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple, which reduces the argument to showing that \(\Phi_{\mathfrak{sp}(4)}\) is isomorphic to a root system of type C2, then showing that any two root systems of type C2 are isomorphic. This reduces the argument to the following sequence of claims.
+            \item By Humphrey's theorem 14.2 (and the preceding discussion) an isomorphism of root systems induces an isomorphism of simple lie algebras, in order to apply this we first show that \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple, which reduces the argument to showing that \(\Phi_{\mathfrak{sp}(4)}\) can be taken to have type C2, then showing that any two root systems of type C2 are isomorphic. This reduces the argument to the following sequence of claims.
             
             \emph{Claim 1.} If \(L\) is a semisimple lie algebra with irreducible root system \(\Phi_L\), then \(L\) is simple.
 
-            \emph{Claim 2.} \(\Phi_{\mathfrak{sp}(4)}\) is isomorphic to a root system \(\Phi\) of type C2.
+            \emph{Claim 2.} \(\Phi_{\mathfrak{sp}(4)}\) can be taken to have root system of type B2.
 
-            \emph{Claim 3.} Any two root systems of type C2 are isomorphic.
+            \emph{Claim 3.} Any two root systems of type B2 are isomorphic.
 
             \emph{Claim 4.} Root systems of type B2 and C2 are irreducible.
 
-            Now I will formally prove the result assuming the claims. By claim 4, \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) have irreducible root systems, and thus by Claim 1 they are simple. Then claim 2 tells us that \(\Phi_{\mathfrak{sp}(4)} \cong \Phi\) for some root system \(\Phi\) of type C2, thus by claim 3 we have \(\Phi_{\mathfrak{sp}(4)} \cong \Phi \cong \Phi_{\mathfrak{so}(5)}\), so that \(\Phi_{\mathfrak{sp}(4)} \cong \Phi_{\mathfrak{so}(5)}\). Whence \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple Lie algebras with isomorphic root systems, so by Humphreys theorem 14.2 and the preceding discussion there is an induced isomorphism \(\mathfrak{sp}(4) \cong \mathfrak{so}(5)\). \qed
+            Now I will formally prove the result assuming the claims. By claim 4, \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) have irreducible root systems, and thus by Claim 1 they are simple. Then claim 2 tells us that \(\Phi_{\mathfrak{sp}(4)}\) has an ordered basis of simple roots so that it is of type B2, then claim 3 tells us that \(\Phi_{\mathfrak{sp}(4)} \cong \Phi_{\mathfrak{so}(5)}\). Whence \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple Lie algebras with isomorphic root systems, so by Humphreys theorem 14.2 and the preceding discussion there is an induced isomorphism \(\mathfrak{sp}(4) \cong \mathfrak{so}(5)\). \qed
 
-            \textcolor{red}{TODO: Prove the claims}
+            \emph{Proof of Claim 1.} This is trivially implied by Humphreys corollary 14.1. \qed
+
+            \emph{Proof of Claim 2.} Take \(\Phi_{\mathfrak{\mathfrak{sp}(4)}}\) with the ordered basis of simple roots \(\Delta = \set{\alpha_2,\alpha_1}\) as defined in the previous 2 subparts. Then the Cartan matrix with this basis is the transpose of the cartan matrix in the ordered basis \(\set{\alpha_1, \alpha_2}\), thus agrees with the cartan matrix in equation \eqref{cartandual}, we saw in the paragraph preceding equation \eqref{B2} that such a Cartan matrix gives rise to a root system of type B2. \qed
+
+            \emph{Proof of Claim 3.} Humphreys proposition 11.1 states that the Cartan matrix specifies a root system up to isomorphism. So it suffices to show that any two root systems of type B2 have the same Cartan matrix. Let \(\Phi\) be a root system of type B2, then by the algorithm prescribed to compute the Dynkin diagram we know that \(\Phi\) has two simple roots \(\alpha,\beta\), forming a basis \(\Delta = \set{\alpha,\beta}\), that \(\gen{\alpha,\beta}\gen{\beta,\alpha} = 2\) and that \((\beta,\beta) < (\alpha,\alpha)\). This inequality condition implies that
+            \begin{align}
+                \abs{\gen{\alpha,\beta}} = \frac{\abs{(\alpha,\beta)}}{(\alpha,\alpha)} < \frac{\abs{(\alpha,\beta)}}{(\beta,\beta)} = \abs{\gen{\beta,\alpha}}
+            \end{align}
+            since the only possible integer factorizations of 2 are \(\set{\pm1,\pm2}\) we get Cartan matrices
+            \begin{align}
+                \begin{pmatrix} 2 & \pm 1 \\ \pm2 & 2 \end{pmatrix}
+            \end{align}
+            Notice that either sign convention of the Cartan matrix specifies the same root system, since the other sign convention simply corresponds to basis \(\Delta = \set{-\alpha,-\beta}\). Thus all Lie algebras of type B2 can have basis chosen such that they have the same Cartan matrix which implies they are isomorphic by Humphreys proposition 11.1. \qed
+
+            \emph{Proof of Claim 4.} Suppose \(\Phi\) has type B2 or C2, then by reading off the corresponding Dynkin diagrams (equations \eqref{C2} and \eqref{B2}) we conclude that \(\Phi\) has two simple roots \(\alpha \tand \beta\) and that
+            \(\gen{\alpha,\beta}\gen{\beta,\alpha} = 2\) so that \((\alpha,\beta) \neq 0\) so that \(\Delta = \set{\alpha,\beta}\) is not irreducible. By Humphreys 10.4 (see first paragraph) \(\Phi\) is irreducible if and only if \(\Delta\) is. We conclude that \(\Phi\) is irreducible. \qed
         \end{enumerate}
     \end{pb}
 \end{document}
