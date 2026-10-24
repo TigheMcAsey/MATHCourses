@@ -298,15 +298,46 @@
                 \kappa(t_{\alpha_1 + \alpha_2},t_{\alpha_1 + \alpha_2}) &= \frac{24}{12^2} = \frac16 \\
                 \kappa(t_{2 \alpha_1 + \alpha_2},t_{2 \alpha_1 + \alpha_2}) &= 12/6^2 = \frac13
             \end{align}
-            Whence we compute the coroots from the given formula, since \(t_{-\alpha} = -t_\alpha\) bilinearity of the killing form ensures that \(\kappa_{-\alpha} = -\kappa_\alpha\), so once again we only compute the positive coroots.
+            Whence we compute the \(h_\alpha\) from the given formula, since \(t_{-\alpha} = -t_\alpha\) bilinearity of the killing form ensures that \(\kappa_{-\alpha} = -\kappa_\alpha\), so once again we only compute the positive linear combinations.
             \begin{align}
                 h_{\alpha_1} &= h_1 - h_2 \\
                 h_{\alpha_2} &= h_2 \\
                 h_{\alpha_1 + \alpha_2} &= h_1 + h_2 \\
                 h_{2 \alpha_1 + \alpha_2} &= h_1
             \end{align}
+            The simple coroots are defined in Humphreys 9.2 as
+            \begin{align}
+                \check{\alpha}_1 &= \frac{2 \alpha_1}{(\alpha_1,\alpha_1)} = 12 \alpha_1 \\
+                \check{\alpha}_2 &= \frac{2 \alpha_2}{(\alpha_2,\alpha_2)} = 6 \alpha_2
+            \end{align}
+            To classify the coroot system, we simply compute its cartan matrix who's entries are given by \(\gen{\check{\alpha}_i,\check{\alpha}_j}\), once again it is immediate that for \(i = j\) we get \(2\), so we compute the other two cases:
+            \begin{align}
+                \gen{\check{\alpha}_1,\check{\alpha}_2} &= \frac{2(12 \alpha_1,6 \alpha_2)}{(12\alpha_1,12\alpha_1)} = \frac{1}{2}\gen{\alpha_1,\alpha_2} = -1 \\
+                \gen{\check{\alpha}_2,\check{\alpha}_1} &= \frac{2(6 \alpha_2,12 \alpha_1)}{(6\alpha_2,6\alpha_2)} = 2\gen{\alpha_1,\alpha_2} = -2
+            \end{align}
+            Thus we get cartan matrix for \(\check{\Phi}\):
+            \begin{align}
+                \begin{pmatrix} 2 & -1 \\ -2 & 2 \end{pmatrix}
+            \end{align}
+            Then the product of the off diagonal entries is the same as the original cartan matrix, and \(\dim \operatorname{span}_F(\check{\Phi}) = 2\) so we get the same Dynkin diagram appart from \((\check{\alpha}_1,\check{\alpha}_1) = 12^2(\alpha_1,\alpha_1) = 24 > 12 = 6^2(\alpha_2,\alpha_2) = (\check{\alpha}_2,\check{\alpha}_2)\) i.e. the arrow is reversed. Thus the Dynkin diagram is
+            \begin{align}
+                \dynkin[scale=4] B2
+            \end{align}
+            Which is of type B2. \qed
+
+            \textcolor{red}{TODO: Prove the claims}
+
+            \item By Humphrey's theorem 14.2 (and the preceding discussion) an isomorphism of root systems induces an isomorphism of simple lie algebras, in order to apply this we first show that \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple, which reduces the argument to showing that \(\Phi_{\mathfrak{sp}(4)}\) is isomorphic to a root system of type C2, then showing that any two root systems of type C2 are isomorphic. This reduces the argument to the following sequence of claims.
             
-            \textcolor{red}{TODO: Show the coroot system is of type \(B_2\)}
+            \emph{Claim 1.} If \(L\) is a semisimple lie algebra with irreducible root system \(\Phi_L\), then \(L\) is simple.
+
+            \emph{Claim 2.} \(\Phi_{\mathfrak{sp}(4)}\) is isomorphic to a root system \(\Phi\) of type C2.
+
+            \emph{Claim 3.} Any two root systems of type C2 are isomorphic.
+
+            \emph{Claim 4.} Root systems of type B2 and C2 are irreducible.
+
+            Now I will formally prove the result assuming the claims. By claim 4, \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) have irreducible root systems, and thus by Claim 1 they are simple. Then claim 2 tells us that \(\Phi_{\mathfrak{sp}(4)} \cong \Phi\) for some root system \(\Phi\) of type C2, thus by claim 3 we have \(\Phi_{\mathfrak{sp}(4)} \cong \Phi \cong \Phi_{\mathfrak{so}(5)}\), so that \(\Phi_{\mathfrak{sp}(4)} \cong \Phi_{\mathfrak{so}(5)}\). Whence \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple Lie algebras with isomorphic root systems, so by Humphreys theorem 14.2 and the preceding discussion there is an induced isomorphism \(\mathfrak{sp}(4) \cong \mathfrak{so}(5)\). \qed
 
             \textcolor{red}{TODO: Prove the claims}
         \end{enumerate}
