@@ -25,6 +25,7 @@
 \numberwithin{example}{subsection}
 \numberwithin{proposition}{subsection}
 \usepackage{tikz-cd, stackengine}
+\usepackage{dynkin-diagrams}
 
 % Commands:
 
@@ -233,6 +234,7 @@
             \begin{align}
                 \Phi = \set{\pm \alpha_1, \pm \alpha_2, \pm (\alpha_1 + \alpha_2), \pm (2 \alpha_1 + \alpha_2)}
             \end{align}
+            So that indeed \(\Delta = \set{\alpha_1,\alpha_2}\) is a base for the root system by definition (they form a basis for the root system and all other elements are strictly positive or negative integer linear combinations of them) so that these are the simple roots.
             To compute the Cartan matrix we use the computations of the elements \(t_\alpha\) from the fourth subpart, as these are needed to take inner products. Now, the definition of \((\alpha,\beta)\) for \(\alpha,\beta \in \Phi\) is given in section 8.5 of Humphreys as \((\alpha,\beta) = \kappa(t_\alpha,t_\beta)\), and moreover \(\gen{\alpha,\beta} := \frac{2(\alpha,\beta)}{(\alpha,\alpha)}\) in Humphreys 9.1. The Cartan matrix as defined in Humphreys 11.1 is the matrix \(\sum_{i,j}\gen{\alpha_i,\alpha_j}e_{ij}\) summing over the simple roots. Since we computed \(t_{\alpha_1},t_{\alpha_2}\) in the subsequent subpart of the question we can use Claim 1 (from part 4 of this question) to compute \((\alpha_i,\alpha_j)\) for \((i,j) \in \set{1,2}^2\). In fact we already computed the case \(i = j\) when computing the coroots.
             \begin{align}
                 (\alpha_1,\alpha_1) &\overset{\eqref{firstinnerprod}}{=} \frac{1}{6} \\
@@ -248,7 +250,11 @@
             \begin{align}
                 \begin{pmatrix} 2 & -2 \\ -1 & 2 \end{pmatrix}
             \end{align}
-
+            Now it is trivial to compute the Dynkin diagram of \(\Phi\) by using the procedure described in Humphreys 11.2, since \(\dim \operatorname{span}_F \Phi = 2\) the number of simple roots we start with two vertices, and draw \(\gen{\alpha_1,\alpha_2}\gen{\alpha_2,\alpha_1} = (-1)(-2) = 2\) lines between them. Now all that remains is to draw an arrow towards the shorter root, in this case \((\alpha_1,\alpha_1) = \frac16 < \frac13 = (\alpha_2,\alpha_2)\) so the arrow is from \(\alpha_2\) to \(\alpha_1\), the diagram given from this procedure is drawn below (I am using the Dynkin Diagrams tikz package):
+            \begin{equation*}
+                \dynkin[scale = 4] C2
+            \end{equation*}
+            Which is of type C2. \qed
 
             \item Humphreys proposition 8.3 says that for \(x \in L_\alpha\), \(y \in L_{-\alpha}\) we have \([x,y] = \kappa(x,y)t_\alpha\). We need the following claims:
             
@@ -278,7 +284,7 @@
                 (\alpha_1 + \alpha_2)(h_1) &= 1 \\
                 (2 \alpha_1 + \alpha_2)(h_1) &= 2
             \end{align}
-            Whence we use the formula from equation \eqref{taformula} to compute each \(t_\alpha\):
+            Whence we use the formula from equation \eqref{taformula} to compute each \(t_\alpha\) (note we only do the positive integer combinations since \(t_{-\alpha} = -t_\alpha\), this is readily seen as \(\kappa(t_{-\alpha},h) \overset{\text{def}}{=} -\alpha(h) \overset{\text{def}}{=} -\kappa(t_\alpha,h) = \kappa(-t_\alpha,h)\)):
             \begin{align}
                 t_{\alpha_1} &= \frac{\alpha_1(h_1)(h_1 - h_2)}{6 \operatorname{tr}(e_{11} + e_{33})} = \frac{1}{12}(h_1 - h_2) \\
                 t_{\alpha_2} &= \frac{\alpha_2(h_2)h_2}{6 \operatorname{tr}(e_{22} + e_{44})} = \frac16 h_2 \\
@@ -292,13 +298,14 @@
                 \kappa(t_{\alpha_1 + \alpha_2},t_{\alpha_1 + \alpha_2}) &= \frac{24}{12^2} = \frac16 \\
                 \kappa(t_{2 \alpha_1 + \alpha_2},t_{2 \alpha_1 + \alpha_2}) &= 12/6^2 = \frac13
             \end{align}
-            Whence we compute the coroots from the given formula:
+            Whence we compute the coroots from the given formula, since \(t_{-\alpha} = -t_\alpha\) bilinearity of the killing form ensures that \(\kappa_{-\alpha} = -\kappa_\alpha\), so once again we only compute the positive coroots.
             \begin{align}
                 h_{\alpha_1} &= h_1 - h_2 \\
                 h_{\alpha_2} &= h_2 \\
                 h_{\alpha_1 + \alpha_2} &= h_1 + h_2 \\
                 h_{2 \alpha_1 + \alpha_2} &= h_1
             \end{align}
+            
             \textcolor{red}{TODO: Show the coroot system is of type \(B_2\)}
 
             \textcolor{red}{TODO: Prove the claims}
