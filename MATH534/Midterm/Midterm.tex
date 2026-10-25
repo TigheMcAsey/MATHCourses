@@ -357,4 +357,50 @@
             \(\gen{\alpha,\beta}\gen{\beta,\alpha} = 2\) so that \((\alpha,\beta) \neq 0\) so that \(\Delta = \set{\alpha,\beta}\) is not irreducible. By Humphreys 10.4 (see first paragraph) \(\Phi\) is irreducible if and only if \(\Delta\) is. We conclude that \(\Phi\) is irreducible. \qed
         \end{enumerate}
     \end{pb}
+
+    \begin{pb}
+        \textbf{(a)} By the universal property of \(U\), there is a unique algebra homomorphism \(\psi\) such that the following commutes:
+        \begin{equation}
+            \begin{tikzcd}
+                U \arrow[r, dashed, "\exists ! \psi"] &U' \\
+                L \arrow[u,"\iota"] \arrow[ur,"\iota'"]
+            \end{tikzcd}
+        \end{equation}
+        I.e. a unique algebra homomorphism \(\psi\) such that \(\psi \circ \iota = \iota'\). \qed
+
+        \textbf{(b)} Let \(A\) be an algebra and \(j: L \to A\) be a linear map satisfying the bracket identity. It will suffice to show there exists a unique map \(\varphi: T(L)/J \to A\) satisfying \(\varphi \circ \iota = j\). By the universal property of the tensor algebra, for any linear map \(j: L \to A\) there is a unique algebra morphism \(f: T(L) \to A\) satisfying \(f \circ s = j\) where \(s: L \hookrightarrow T(L)\) is the inclusion. Moreover if \(f: T(L) \to A\) satisfies \(J \subset \ker f\), then by the first isomorphism theorem there exists a unique algebra morphism \(\varphi: T(L)/J \to A\) such that  \(\varphi \circ \pi = f\) where \(\pi\) is the quotient. Note that since \(L \hookrightarrow T(L)\) is injective and \(J \subset \ker j\) by assumption, we have \(J \subset \ker f\). So the isomorphism theorem does indeed apply. This paragraph can be summarized in the following diagram.
+
+        \begin{equation}\begin{tikzcd}
+            L \arrow[dr,"j"] \arrow[r,"s"] &T(L) \arrow[d,dashed,"\exists ! f"] \arrow[r,"\pi"] &T(L)/J \arrow[dl,dashed,"\exists! \varphi"] \\
+            &A
+        \end{tikzcd}\end{equation}
+
+        Where \(f\) is induced by the universal property of \((T(L),s)\) and \(\varphi\) is induced by the first isomorphism theorem on \(f\) since \(j(x\otimes y - y\otimes x - [x,y]) = 0\) for all \(x,y\) and \(\iota\) is injective so that \(J \subset \ker f\). To see that \(\iota(L)\) generates \(U(L)\) as an algebra it suffices to show by surjectivity of \(\pi\) that \(s(L)\) generates \(T(L)\). We prove this by showing that \((s(L)) \subset T(L)\) satisfies the universal propery of \(T(L)\). So let \(A\) be an algebra and \(j: L \to A\) be linear, moreover let \(e\) be the inclusion \((s(L)) \hookrightarrow T(L)\), then the universal property of \(T(L)\) gives a unique algebra homomorphism \(f: T(L) \to A\) with \(f\circ s = j\), and by definition the restriction \(f\vert_{(s(L))}\) is the unique algebra homomorphism satisfying \(f = f\vert_{s(L)} \circ e\), notice now that the restriction satisfies \(f\vert_{s(L)}s(x) = f(s(x))\) for all \(x \in L\). So that \(((s(L)),s)\) satisfies the universal property of \(T(L)\). Written diagramatically the argument is
+        \begin{equation}\begin{tikzcd}
+            L \arrow[dr,"j"] \arrow[r,"s"] &(s(L)) \arrow[r,"e"] &T(L) \arrow[dl,dashed,"\exists ! f"] \\ &A
+        \end{tikzcd}\end{equation}
+        So that the restriction satisfies
+        \begin{equation}\begin{tikzcd}
+            L \arrow[dr,"j"] \arrow[r,"s"] &(s(L)) \arrow[d,dashed,"\exists! f\vert_{(s(L))}"] \arrow[r,"e"] &T(L) \arrow[dl,dashed, "\exists! f"] \\ &A
+        \end{tikzcd}\end{equation}
+        Which is the universal property for \(T(L)\).
+
+        Now we show that if \(L = \operatorname{span}_F\set{x_1,\hdots,x_n}\) with trivial Lie bracket \(U(L) = F[x_1,\hdots,x_n]\), thus we show that \((F[x_1,\hdots,x_n],\iota: x_j \mapsto x_j)\) satisfies the universal property. In this case a linear map satisfying the bracket identity is \(j: L \to A\) with \(j(x)j(y) - j(y)j(x) = 0\) it is immediate that \(\iota\) satisfies this identity since \(F[x_1,\hdots,x_n]\) is abelian. The universal property of the ring \(R[x_1,\hdots,x_n]\) is for any ring homomorphism \(\phi: R \to S\) and any \(s_j \in S\) there is a unique map \(\hat{\phi}\) with \(\hat{\phi}\vert_R = \phi\) satisfying \(\hat{\phi}(x_j) = s_j\). Any \(F\)-algebra homomorphism restricts to \(1: F \to F\), so that for any \(\set{a_j}_1^n \subset A\) there exists a unique algebra homomorphism \(\phi: x_j \to a_j\). A linear map \(L \to A\) is defined by its value on the basis \(x_j\), i.e. is specified by \(j(x_j)\), thus by the universal property of \(F[x_1,\hdots,x_n]\) there exists a unique map \(\phi: F[x_1,\hdots,x_n]\) with \(\phi\circ\iota(x_j) = f(x_j) = j(x_j)\) thus a unique \(\phi\) satisfying \(\phi \circ \iota = j\). Again we can write this diagramatically.
+        \begin{equation}\begin{tikzcd}
+            L \arrow[d,"j: x_j \mapsto a_j"] \arrow[r,"\iota: x_j \mapsto x_j"] &F[x_1,\hdots,x_n] \arrow[ld,dashed, "\exists! \phi: x_j \mapsto a_j"] \\
+            A
+        \end{tikzcd}\end{equation}
+        Linearity of \(j\) (and \(\iota\) and \(\phi\)) ensures the diagram commutes just by specifying these \(a_j\) values. \qed
+
+        \textbf{(c)} Notice that an \(L\)-module structure on \(V\) defines a linear map \(j:L \to \operatorname{End}(V)\) (\emph{I found it immensely satisfying to notice this}) via \(j(x) \mapsto (v \mapsto x.v)\) linearity is implied by M1,M2 and the relation \(j([x,y]) = j(x)j(y) - j(y)j(x)\) by M3 (M\(j\) defined as in Humphreys 6.1). Thus the universal property of \(U(L)\) gives us
+        \begin{equation}\begin{tikzcd}
+            L \arrow[d,"j"] \arrow[r,"\iota"] &U(L) \arrow[dl,dashed,"\exists! \phi"] \\
+            \operatorname{End}(V)
+        \end{tikzcd}\end{equation}
+        And a unital \(U(L)\) module structure is equivalent to a \(F\)-algebra homomorphism \(U(L) \to \operatorname{End}(V)\). The uniqueness thus implies the correspondence 
+        \begin{align}
+            \hom_{\operatorname{Vect}_F}(L,\operatorname{End}(V)) \cap \text{Image has relations} \to \hom_{F\text{-alg}}(U(L),\operatorname{End}(V))
+        \end{align} 
+        Via taking the universal property map is injective, so demonstrating surjectivity will prove the equivalence. Consider \(\phi \in (U(L) \to \operatorname{End}(V))\)
+    \end{pb}
 \end{document}
