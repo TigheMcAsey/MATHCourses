@@ -51,6 +51,8 @@
 \newcommand{\spo}{\operatorname{\mathfrak{so}}}
 
 \begin{document}
+    Reader beware: I have used local scoping on my claim numbering, i.e. there are numerous claim 1-s in the document. I think this should not be a problem as it is never ambiguous which claim I am refering to.
+
     \begin{pb}
         \begin{enumerate}
             \item Proposition 3.1b in Humphreys states if \(I\) is a solveable ideal of \(L\) such that \(L/I\) is solveable, then \(L\) is solveable. Since \(L/[L,L]\) is abelian by definition of \([L,L]\) and \([L,L]\) is nilpotent hence solveable we conclude by the proposition that \(L\) is solveable. \qed
@@ -436,5 +438,23 @@
             &L \arrow[u,"\iota"] \arrow[uul,"\phi_V \circ\iota"] \arrow[uur,"\phi_W\circ\iota"]
         \end{tikzcd}\end{equation}
         \qed
+
+        \textbf{(d)} The following claim is essential for many of the arguments used in this subpart:
+
+        \emph{Claim.} If \(\sigma \in S_n\) then there is some \(v\) which is a sum of (PBW) basis elements involving at most \(n-1\) terms such that
+        \begin{align}
+            x_1^{a_1}\cdots x_n^{a_n} = \prod_1^n x_{\sigma(j)}^{a_{\sigma(j)}} + v \label{reorder}
+        \end{align}
+
+        \begin{enumerate}
+            \item Since \(x_1,\hdots,x_n\) are \(n\) distinct basis elements in \(U(L)\) (by PBW) and are all in the image of \(\iota\) we conclude that \(\operatorname{rank}\iota \geq n\), thus \(\dim \ker \iota = 0\) by rank nullity.
+            \item The claim proven above (equation \eqref{reorder}) alongside PBW establishes that a basis for \(U_k\) is given by \(\set{x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n} \mid a_j \geq 0 \tand \sum_j a_j \leq k}\). So we may write
+            \begin{align}
+                \dim U_k = \dim U_{k-1} + \# \set{(a_1,\hdots,a_n)\mid \sum_j a_j = k}
+            \end{align}
+            Moreover we may proceed by induction since \(\dim U_0 = \dim F = 1\).
+        \end{enumerate}
+
+        \textcolor{red}{TODO: prove claim}
     \end{pb}
 \end{document}
