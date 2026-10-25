@@ -366,7 +366,15 @@
                 L \arrow[u,"\iota"] \arrow[ur,"\iota'"]
             \end{tikzcd}
         \end{equation}
-        I.e. a unique algebra homomorphism \(\psi\) such that \(\psi \circ \iota = \iota'\). \qed
+        I.e. a unique algebra homomorphism \(\psi\) such that \(\psi \circ \iota = \iota'\). 
+        
+        I suspect the question may have intended to ask that \(U\) is uniquely isomorphic to \(U'\), this is useful for disambiguation so I will prove it here using the following diagram:
+        \begin{equation}\begin{tikzcd}
+            U \arrow[rr,bend left = 45,dashed,"\exists !"] \arrow[r,"\Psi"] &U' \arrow[r,"\Psi'"] &U \\
+            & L \arrow[ru,"\iota"] \arrow[lu,"\iota"] \arrow[u,"\iota'"]
+        \end{tikzcd}\end{equation}
+        Then notice that \(1_U\) could be the map on the dashed line but also \(\Psi'\circ\Psi\) so that \(\Psi'\circ\Psi = 1_U\). The argument for \(\Psi\circ\Psi' = 1_{U'}\) is the same up to relabelling.
+        \qed
 
         \textbf{(b)} Let \(A\) be an algebra and \(j: L \to A\) be a linear map satisfying the bracket identity. It will suffice to show there exists a unique map \(\varphi: T(L)/J \to A\) satisfying \(\varphi \circ \iota = j\). By the universal property of the tensor algebra, for any linear map \(j: L \to A\) there is a unique algebra morphism \(f: T(L) \to A\) satisfying \(f \circ s = j\) where \(s: L \hookrightarrow T(L)\) is the inclusion. Moreover if \(f: T(L) \to A\) satisfies \(J \subset \ker f\), then by the first isomorphism theorem there exists a unique algebra morphism \(\varphi: T(L)/J \to A\) such that  \(\varphi \circ \pi = f\) where \(\pi\) is the quotient. Note that since \(L \hookrightarrow T(L)\) is injective and \(J \subset \ker j\) by assumption, we have \(J \subset \ker f\). So the isomorphism theorem does indeed apply. This paragraph can be summarized in the following diagram.
 
@@ -399,8 +407,34 @@
         \end{tikzcd}\end{equation}
         And a unital \(U(L)\) module structure is equivalent to a \(F\)-algebra homomorphism \(U(L) \to \operatorname{End}(V)\). The uniqueness thus implies the correspondence 
         \begin{align}
-            \hom_{\operatorname{Vect}_F}(L,\operatorname{End}(V)) \cap \text{Image has relations} \to \hom_{F\text{-alg}}(U(L),\operatorname{End}(V))
+            \hom_{\operatorname{Vect}_F}(L,\operatorname{End}(V)) \cap \text{Image has bracket relation} \to \hom_{F\text{-alg}}(U(L),\operatorname{End}(V))
         \end{align} 
-        Via taking the universal property map is injective, so demonstrating surjectivity will prove the equivalence. Consider \(\phi \in (U(L) \to \operatorname{End}(V))\)
+        Via taking the universal property map is injective, so demonstrating surjectivity will prove the equivalence. Consider \(\phi \in \hom_{F\text{-alg}}(U(L),\operatorname{End}(V))\), then \(\phi\circ \iota\) has the bracket relation by definition of \(\iota\), is linear since \(\phi\) and \(\iota\) are and trivially satisfies commutativity of the following diagram:
+        \begin{equation}\begin{tikzcd}
+            L \arrow[d,"\phi\circ\iota"] \arrow[r,"\iota"] &U(L) \arrow[dl,"\phi"] \\
+            \operatorname{End}(V)
+        \end{tikzcd}\end{equation}
+        Thus \(\phi\) is the image of \(\phi\circ\iota\) under the universal property map which proves surjectivity. It is trivial to see this maps submodules to submodules since in such a case \(W \subset V\) a submnodule the above construction carries through identically by simply replacing each occurance of \(\operatorname{End}V\) with \(\operatorname{End}W\). Finally we check that this correspondence matches \(L\)-module homs with \(U(L)\) module homs. Consider two \(L\)-modules \(V,W\), equivalently two linear maps \(j_V: L \to \operatorname{End}V\) and \(j_W: L \to \operatorname{End}(W)\) satisfying the bracket relation. Then an \(L\)-module homomorphism is equivalent to an algebra homomorphism \(\Phi\) such that the following commutes:
+        \begin{equation}\begin{tikzcd}
+            \operatorname{End}V \arrow[rr,"\Phi"] &&\operatorname{End}W \\
+            &L \arrow[ul,"j_V"] \arrow[ur,"j_W"]
+        \end{tikzcd}\end{equation}
+        Applying the correspondence (the universal property) to \(j_V\) and \(j_W\) gives us \(F\)-algebra homomorphisms \(\phi_V\) and \(\phi_W\) such that the following commutes
+        \begin{equation}\begin{tikzcd}
+            \operatorname{End}V \arrow[rr,"\Phi"] &&\operatorname{End}W \\
+            L \arrow[r,"\iota"] \arrow[u,"j_V"]&U(L) \arrow[ul,"\phi_V"] \arrow[ur,"\phi_W"] & L \arrow[u,"j_W"] \arrow[l,"\iota"]
+        \end{tikzcd}\end{equation}
+        We notice that this is exactly a module homomorphism between the \(U(L)\) module structure given by \(\phi_V\) and the structure given by \(\phi_W\). For the reverse direction of the correspondence we start with some \(U(L)\) module structures \(\phi_V\) and \(\phi_W\) and an algebra morphism \(\Phi: \operatorname{End}V \to \operatorname{End}W\) such that the following commutes:
+        \begin{equation}\begin{tikzcd}
+            \operatorname{End}V \arrow[rr,"\Phi"] &&\operatorname{End}W \\
+            &U(L) \arrow[ul,"\phi_V"] \arrow[ur,"\phi_W"]
+        \end{tikzcd}\end{equation}
+        then notice the following commutes thus sending \(\Phi\) to the corresponding \(L\)-module morphism
+        \begin{equation}\begin{tikzcd}
+            \operatorname{End}V \arrow[rr,"\Phi"] &&\operatorname{End}W \\
+            &U(L) \arrow[ul,"\phi_V"] \arrow[ur,"\phi_W"] \\
+            &L \arrow[u,"\iota"] \arrow[uul,"\phi_V \circ\iota"] \arrow[uur,"\phi_W\circ\iota"]
+        \end{tikzcd}\end{equation}
+        \qed
     \end{pb}
 \end{document}
