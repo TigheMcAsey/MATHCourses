@@ -441,18 +441,29 @@
 
         \textbf{(d)} The following claim is essential for many of the arguments used in this subpart:
 
-        \emph{Claim.} If \(\sigma \in S_n\) then there is some \(v\) which is a sum of (PBW) basis elements involving at most \(n-1\) terms such that
+        \emph{Claim.} If \(\sigma \in S_n\) then there is some \(v\) which is a sum of (PBW) basis elements involving at most \(-1 + \sum_j a_j\) products of elements of \(\iota(L)\) such that
         \begin{align}
             x_1^{a_1}\cdots x_n^{a_n} = \prod_1^n x_{\sigma(j)}^{a_{\sigma(j)}} + v \label{reorder}
         \end{align}
 
         \begin{enumerate}
-            \item Since \(x_1,\hdots,x_n\) are \(n\) distinct basis elements in \(U(L)\) (by PBW) and are all in the image of \(\iota\) we conclude that \(\operatorname{rank}\iota \geq n\), thus \(\dim \ker \iota = 0\) by rank nullity.
+            \item Since \(x_1,\hdots,x_n\) are \(n\) distinct basis elements in \(U(L)\) (by PBW) and are all in the image of \(\iota\) we conclude that \(\operatorname{rank}\iota \geq n\), thus \(\dim \ker \iota = 0\) by rank nullity. \qed
             \item The claim proven above (equation \eqref{reorder}) alongside PBW establishes that a basis for \(U_k\) is given by \(\set{x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n} \mid a_j \geq 0 \tand \sum_j a_j \leq k}\). So we may write
             \begin{align}
                 \dim U_k = \dim U_{k-1} + \# \set{(a_1,\hdots,a_n)\mid \sum_j a_j = k}
             \end{align}
-            Moreover we may proceed by induction since \(\dim U_0 = \dim F = 1\).
+            Moreover we may proceed by induction since \(\dim U_0 = \dim F = 1 = \binom{n}{0}\). Finally, notice that by stars and bars method of counting with \(k\) stars and \(n-1\) bars we find that
+            \begin{align}
+                \# \set{(a_1,\hdots,a_n)\mid \sum_j a_j = k} = \binom{n-1+k}{k}
+            \end{align}
+            and by inclusion exclusion on choosing the first element we find that
+            \begin{align}
+                \binom{n+k}{k} = \underbrace{\binom{n+k-1}{k-1}}_{\text{choices including } 1} + \underbrace{\binom{n+k-1}{k}}_{\text{choices excluding } 1} \overset{\text{induction}}{=} \dim U_{k-1} + \# \set{(a_1,\hdots,a_n)\mid \sum_j a_j = k}
+            \end{align} \qed
+
+            \item I will denote the degree of an element \(u \in U\) as the maximal degree of its basis terms, where the degree of a basis term \(\prod_1^n x_j^{a_j}\) is defined as \(\sum_1^n a_j\). We prove the claim by induction on \(k + \ell\), it is trivial in the case \(k + \ell = 0\) since fields are commutative. Moreover notice that using the claim (and the basis for products of k-terms supplied in the proof of the previous subpart) every \(u \in U_k\) and \(v \in U_\ell\) can be rewritten as finite sums \(\sum u^j + u'\) and \(\sum v^j + v'\) where \(u^j\) and \(v^j\) are degree \(k\) and \(\ell\) monomials respectively and \(u' \in U_{k-1}, v' \in U_{\ell - 1}\), since \(uv - vu\) trivially lies in \(U_{k+\ell}\) applying induction it suffices to show that for \(u,v\) monomial basis terms of degree \(k \tand \ell\) respectively we have \(uv - vu = 0\) in \(U_{k+\ell}/U_{k+\ell - 1}\). Fix two such basis terms \(u = x_1^{a_1}\cdots x_n^{a_n}, v = x_1^{b_1}\cdots x_n^{b_n}\) then \(uv\) is related by a permutation of terms to \(vu\), whence the previous claim establishes their difference is a sum of products of at most \(-1 + \sum_1^n a_j + \sum_1^n b_j = k + \ell - 1\) elements of \(\iota(L)\) thus in \(U_{k + \ell -1}\).
+            
+            \item Define a total order on basis monomials \(u = x_1^{a_1}\cdots x_n^{a_n}\) by lexicographical order on the word \((\deg u,a_1,\hdots,a_n)\), I note here that indeed lexicographical order defines a total order on words. Now let \(u = \prod_1^n x_j^{a_j},v = \prod_1^n x_j^{b_j}\) be two monomials.
         \end{enumerate}
 
         \textcolor{red}{TODO: prove claim}
