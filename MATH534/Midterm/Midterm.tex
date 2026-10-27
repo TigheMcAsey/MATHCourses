@@ -486,12 +486,27 @@
         \end{align}
         So that indeed \(\Omega e = e \Omega\). Next we check for \(f\):
         \begin{align}
-            f\Omega &= -fh + 2fef + \frac12 h^2 = -fh +2([f,e]+ef)f + \frac12 h^2 = -fh -2hf +ef^2 + \frac12 h^2 \\
-            &= -fh - 2([h,f] + fh) + ef^2 + \frac12 h^2 = -fh + 2f + 2fh + ef^2 + \frac12 h^2 \\
-            &= 2f + fh + ef^2 + \frac12 h^2 \\
-            \Omega f &= -hf + 2ef^2 + \frac12 h^2 f
+            f\Omega &= -fh + 2fef + \frac12 fh^2 =-fh + 2([f,e] + ef)f + \frac12fh^2 \\
+            &=-fh -2hf + 2ef^2 + \frac12 fh^2 \\
+            &=-fh -2 ([h,f] + fh) + 2ef^2 + \frac12fh^2 \\
+            &= -fh + 4f - 2fh + 2ef^2 + \frac12 fh^2 \\
+            &= 4f - 3fh + 2ef^2 + \frac12fh^2 \\
+            \Omega f &= -hf + 2ef^2 + \frac12h^2f \\
+            &= -([h,f] + fh) + 2ef^2 + \frac12h([h,f] + fh) \\
+            &= 2f - fh + 2ef^2 - hf + \frac12hfh \\
+            &= 2f - fh + 2ef^2 - ([h,f] + fh) + \frac12([h,f] + fh)h \\
+            &= 2f - fh + 2ef^2 + 2f - fh -fh + \frac12 fh^2 \\
+            &= 4f - 3fh + 2ef^2 + \frac12 fh^2
         \end{align}
-        
-        \textcolor{red}{TODO}
+        So that indeed \(\Omega f = f\Omega\). Finally, we check for \(h\):
+        \begin{align}
+            h\Omega &= -h^2 + 2hef + \frac12h^3 \\
+            &= -h^2 + 2([h,e] + eh)f + \frac12 h^3 \\
+            &= -h^2 + 4ef + 2ehf + \frac12 h^3 \\
+            &= -h^2 + 4ef + 2e([h,f] + fh) + \frac12 h^3 \\
+            &= -h^2 + 4ef -4ef + 2efh + \frac12 h^3 \\
+            &= -h^2 + 2efh + \frac12h^3 = \Omega h
+        \end{align}
+        So that indeed \(\Omega\) commutes with every element of \(U(\mathfrak{sl}(2))\).
     \end{pb}
 \end{document}
