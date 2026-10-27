@@ -170,7 +170,56 @@
                 = &2n \operatorname{tr}(xy)
             \end{align}
 
-            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = e_{jj} - e_{j+1,j+1}\):} \textcolor{red}{TODO}
+            \emph{Case 3. \(x = e_{ii} - e_{i+1,i+1}, y = e_{jj} - e_{j+1,j+1}\):} We again compute \(\operatorname{ad}_x\circ \operatorname{ad}_y\) on each \(e_{k\ell}\)
+            \begin{align}
+                &[e_{ii} - e_{i+1,i+1},[e_{jj} - e_{j+1,j+1},e_{k\ell}]] = [e_{ii} - e_{i+1,i+1}, \delta_{jk}e_{j\ell} + \delta_{j+1,\ell}e_{k,j+1} - \delta_{\ell j}e_{kj} - \delta_{j+1,k}e_{j+1,\ell}] \\
+                = &\delta_{ij}\delta_{jk}e_{i\ell} + \delta_{ik}\delta_{j+1,\ell}e_{i,j+1} - \delta_{ik}\delta_{\ell j}e_{ij} - \delta_{i,j+1}\delta_{j+1,k}e_{i\ell} - \delta_{i+1,j}\delta_{jk}e_{i+1,\ell} - \delta_{i+1,k}\delta_{j+1,\ell}e_{i+1,j+1} \\
+                + & \delta_{i+1,k}\delta_{\ell j}e_{i+1,j} + \delta_{i+1,j+1}\delta_{j+1,k}e_{i+1,\ell}\\
+                + &\delta_{\ell,i+1}\delta_{jk}e_{j,i+1} + \delta_{j+1,i+1}\delta_{j+1,\ell}e_{k,i+1} - \delta_{j,i+1}\delta_{\ell j}e_{k,i+1} - \delta_{i+1,\ell}\delta_{j+1,k}e_{j+1,i+1} \\
+                - & \delta_{i\ell}\delta_{jk}e_{ji} - \delta_{i,j+1}\delta_{j+1,\ell}e_{ki} + \delta_{ij}\delta_{\ell j}e_{ki} + \delta_{\ell i}\delta_{j+1,k}e_{j+1,i}
+            \end{align}
+            In order to take the trace we sum the following over \(k,\ell\) (here I have already done some simplification)
+            \begin{align}
+                &\delta_{ij}\delta_{jk}\delta_{ik} + \delta_{ik}\delta_{j+1,\ell} - \delta_{ik}\delta_{j\ell} - \delta_{i,j+1}\delta_{j+1,k}\delta_{ik} - \delta_{i+1,j}\delta_{jk}\delta_{i+1,k}  \\
+                - &\delta_{i+1,k}\delta_{j+1,\ell}
+                + \delta_{i+1,k}\delta_{j\ell} + \delta_{i+1,j+1}\delta_{j+1,k}\delta_{i+1,k}\\
+                + &\delta_{\ell,i+1}\delta_{jk} + \delta_{j+1,i+1}\delta_{j+1,\ell}\delta_{i+1,\ell} - \delta_{j,i+1}\delta_{\ell j}\delta_{i+1,\ell} - \delta_{i+1,\ell}\delta_{j+1,k} \\
+                - & \delta_{i\ell}\delta_{jk} - \delta_{i,j+1}\delta_{j+1,\ell}\delta_{i\ell} + \delta_{ij}\delta_{\ell j}\delta_{i\ell} + \delta_{\ell i}\delta_{j+1,k}
+            \end{align}
+            In the case of \(i = j\) we sum the following terms:
+            \begin{align}
+                &\delta_{ik} + \delta_{ik}\delta_{i+1,\ell} - \delta_{ik}\delta_{i\ell} - \delta_{i+1,k}\delta_{i+1,\ell}
+                + \delta_{i+1,k}\delta_{i\ell} + \delta_{i+1,k}\\
+                + &\delta_{\ell,i+1}\delta_{ik} + \delta_{i+1,\ell} - \delta_{i+1,\ell}\delta_{i+1,k}
+                - \delta_{i\ell}\delta_{ik} + \delta_{i\ell} + \delta_{i\ell}\delta_{i+1,k}
+            \end{align}
+            summing each term gives us
+            \begin{align}
+                &n + 1 - 1 - 1 + 1 + n \\
+                + &1 + n - 1 - 1 + n + 1 = 4n = 2n(\operatorname{tr}(e_{ii} - e_{i+1,i+1})(e_{ii} - e_{i+1,i+1}))
+            \end{align}
+            In the case of \(j = i + 1\) (which we can read off as equal to the case of \(i = j+1\) by symmetry of the above formulae) we sum the following terms:
+            \begin{align}
+                &\delta_{j-1,k}\delta_{j+1,\ell} - \delta_{j-1,k}\delta_{j\ell} -  \delta_{jk} - \delta_{j,k}\delta_{j+1,\ell}
+                + \delta_{j,k}\delta_{j\ell}\\
+                + &\delta_{j,\ell}\delta_{jk} - \delta_{j,\ell} - \delta_{j,\ell}\delta_{j+1,k}
+                - \delta_{j-1,\ell}\delta_{jk} + \delta_{j-1,\ell}\delta_{j+1,k} \\
+            \end{align}
+            summing each term gives us
+            \begin{align}
+                1 - 1 - n - 1 + 1 + 1 - n - 1 - 1 + 1 = -2n = 2n(\operatorname{tr}(e_{ii} - e_{i+1,i+1})(e_{i+1,i+1} - e_{i+2,i+2}))
+            \end{align}
+            Finally in the case of \(\abs{i-j} > 1\) we sum the following over \(k,\ell\):
+            \begin{align}
+                &\delta_{ik}\delta_{j+1,\ell} - \delta_{ik}\delta_{j\ell}
+                - \delta_{i+1,k}\delta_{j+1,\ell} + \delta_{i+1,k}\delta_{j\ell} + \delta_{\ell,i+1}\delta_{jk} - \delta_{i+1,\ell}\delta_{j+1,k} \\
+                - & \delta_{i\ell}\delta_{jk} + \delta_{\ell i}\delta_{j+1,k}
+            \end{align}
+            taking the sum gives us:
+            \begin{align}
+                1 - 1 - 1 + 1 + 1 - 1 -1 + 1 = 0 = 2n(\operatorname{tr}(e_{ii} - e_{i+1,i+1})(e_{jj} - e_{j+1,j+1}))
+            \end{align}
+            Thus verifying the formula. \qed
             
             \item By theorem 5.1, it suffices to show that the killing form is non-degenerate, i.e. every \(x \in \mathfrak{sl}(n)\) has some \(y \in \mathfrak{sl}(n)\) such that \(\kappa(x,y) = 2n \operatorname{tr}(xy) \neq 0\), write \(x = \sum x_{ij}e_{ij}\), then if \(x_{ij} \neq 0\) for some \(i \neq j\), then
             \begin{align}
@@ -262,7 +311,7 @@
             
             \emph{Claim 1.} If \(h,h' \in H\) then \(\kappa(h,h') = 6 \operatorname{tr}(hh')\)
 
-            \emph{Claim 2.} Let \(\alpha \in \Phi\) then take root vectors \(x_\alpha \in L_\alpha\), \(y_\alpha \in L_{-\alpha}\) and \(h \in \Phi\), then
+            \emph{Claim 2.} Let \(\alpha \in \Phi\) then take root vectors \(x_\alpha \in L_\alpha\), \(y_\alpha \in L_{-\alpha}\) and \(h \in H\), then (assuming \(\alpha(h) \neq 0\))
             \begin{align}
                 \kappa(x_\alpha,y_\alpha) = \frac{6 \operatorname{tr}(h[x_\alpha,y_\alpha])}{\alpha(h)}
             \end{align}
@@ -327,7 +376,15 @@
             \end{align}
             Which is of type B2. \qed
 
-            \textcolor{red}{TODO: Prove the claims}
+            \emph{Proof of Claim 1.} \textcolor{red}{TODO}
+
+            \emph{Proof of Claim 2.} Using claim 1, this is a simple calculation using ad-invariance of the killing form: Let \(h \in H\) with \(\alpha(h) \neq 0\)
+            \begin{align}
+                \kappa(x_\alpha,y_\alpha) &= \alpha(h)^{-1}\kappa(hx_\alpha,y_\alpha) \label{root decomp} \\
+                &\overset{\operatorname{ad} \text{-invariance}}{=} \alpha(h)^{-1}\kappa(h,[x_\alpha,y_\alpha]) \\
+                &\overset{\text{Claim 1}}{=} \alpha(h)^{-1}6 \operatorname{tr}(h[x_\alpha,y_\alpha]) \label{root sum}
+            \end{align}
+            Here equation \eqref{root decomp} follows trivially from the definition of \(x_\alpha\), i.e. the action of the Cartan subalgebra on the root decomposition, moreover equation \eqref{root sum} follows from \([L_\alpha,L_{-\alpha}] \subset H\) and claim 1. \qed
 
             \item By Humphrey's theorem 14.2 (and the preceding discussion) an isomorphism of root systems induces an isomorphism of simple lie algebras, in order to apply this we first show that \(\mathfrak{sp}(4)\) and \(\mathfrak{so}(5)\) are simple, which reduces the argument to showing that \(\Phi_{\mathfrak{sp}(4)}\) can be taken to have type C2, then showing that any two root systems of type C2 are isomorphic. This reduces the argument to the following sequence of claims.
             
