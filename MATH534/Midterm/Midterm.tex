@@ -517,6 +517,28 @@
         \end{align}
         thus proven. Now notice that \(\operatorname{tr}(ef) = \operatorname{tr}(fe) = \operatorname{tr}(h\frac12 h)\) so that \(\set{f,e,\frac12 h}\) is the dual basis for \(\set{e,f,h}\) with respect to the trace form, so that \(\Omega\) is the sum of this basis pairwise product with their duals. Thus in the case of \(m = 1\), with \(V(m) = F^2\) we find that the action of \(\Omega\) is by definition the Casimir element of the standard representation for \(\mathfrak{sl}(2)\). In this case \(\Omega\) acts by the scalar \(1(1+2)/2 = 3/2\) which is precisely the scalar \(\dim L/\dim V = \dim \mathfrak{sl}(2)/\dim F^2 = 3/2\) in Humphreys 6.2 given by \(\operatorname{tr}(c)= \dim L\) and Schur's lemma applied to the Casimir element commuting with every representation. \qed
 
-        \textbf{(f)}
+        \textbf{(f)} We use the ordering on basis elements of \(\mathfrak{sl}(2)\) \(\set{f,e,h}\) and the same induced ordering on \(U(\mathfrak{b})\). To see that \(U(\mathfrak{sl}(2))\) has basis over \(U(\mathfrak{b})\) given by \(\set{f^j}_0^\infty\) we use PBW to get bases on \(U(\mathfrak{sl}(2))\) over \(F\) and \(U(\mathfrak{b})\) over \(F\) being \(\set{f^{a_1}e^{a_2}h^{a_3}}\) and \(\set{e^{a_2}h^{a_3}}\) respectively. Thus every basis element of \(U(\mathfrak{sl}(2))\) is uniquely written as a (right sided) product of \(U(\mathfrak{b})\) with an element of \(\set{f^j}_0^\infty\), with the module structure given by the multiplication induced by the algebra. So that \(U(\mathfrak{sl}(2))\) is indeed a free right \(U(\mathfrak{b})\) module with the given basis. In order to prove the formulas I will first compute \(hf^k\) by induction. I claim that \(hf^k = -2kf^k + f^k h\), this is true trivially for \(k = 0\), then assuming it holds for \(k-1\)
+        \begin{align}
+            hf^k &= ([h,f] + fh)f^{k-1} = -2f^k + fhf^{k-1} = -2f^k - f2(k-1)f^{k-1} + ff^{k-1}h \\
+            &=-2kf^k + f^k h
+        \end{align}
+        Now we can show the given formulae:
+        \begin{align}
+            fv_k = ff^k \otimes v = f^{k+1}\otimes v = v_{k+1}
+        \end{align}
+        is trivial, for the next formula we use our formula for \(hf^k\),
+        \begin{align}
+            hv_k = hf^k \otimes 1 = (-2kf^k + f^kh) \otimes 1 = -2kv_k + f^k \otimes h.1 = (-2k + \lambda)v_k
+        \end{align}
+        And finally we prove the last formula by induction and using our previous results as follows, the case \(k = 0\) is trivial. Assuming that \(ev_{k-1} = (k-1)(\lambda-k+2)v_{k-2}\) we find that
+        \begin{align}
+            ev_k &= ef^k \otimes 1 = ([e,f] + fe)f^{k-1} \otimes 1 = hf^{k-1} \otimes 1 + fev_{k-1} = hv_{k-1} + fev_{k-1} \\
+            &= (-2k + 2 + \lambda)v_{k-1} + (k-1)(\lambda-k+2)f v_{k-2} \\
+            &= (-2k + 2 + \lambda)v_{k-1} + (k-1)(\lambda-k+2)v_{k-1} \\
+            &= k(\lambda - k + 1)v_{k-1}
+        \end{align}
+        As desired.
+
+        Now suppose that \(V\) is a \(\mathfrak{sl}(2)\) module and \(v \in V\) satisfies \(hv = \lambda v\). \textcolor{red}{TODO: Show the universal property.}
     \end{pb}
 \end{document}
