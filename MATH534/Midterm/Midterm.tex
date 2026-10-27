@@ -544,7 +544,10 @@
             e.\varphi(v_j) &= ef. \varphi(v_{j-1}) = ([e,f] + fe) \varphi(v_{j-1}) = (h + fe) \varphi(v_{j-1})\\
             &\overset{\text{Induction hyp.}}{=} (-2j + 2 + \lambda) \varphi(v_{j-1}) + (j-1)(\lambda-j+2)\varphi(v_{j-1}) \\
             &= j(\lambda-j+1) \varphi(v_{j-1}) = \varphi(e.v_j) \\
-            h.\varphi(v_j) &= hf.\varphi(v_{j-1}) = ([h,f] + fh)\varphi(v_{j-1}) = (-2f + fh)\varphi(v_{j-1})
+            h.\varphi(v_j) &= hf.\varphi(v_{j-1}) = ([h,f] + fh)\varphi(v_{j-1}) = (-2f + fh)\varphi(v_{j-1}) \\
+            &\overset{\text{Induction hyp.}}{=} -2f \varphi(v_{j-1}) + (\lambda- 2j + 2)f \varphi(v_{j-1}) \\
+            &= (\lambda - 2j) \varphi(v_{j}) = \varphi(h.v_j)
         \end{align}
+        Thus the map defined by extending \(\varphi(v_{j+1}) = f.\varphi(v_j)\) \(F\)-linearly is indeed a morphism of \(\mathfrak{sl}(2)\) modules. \qed
     \end{pb}
 \end{document}
