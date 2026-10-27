@@ -507,6 +507,16 @@
             &= -h^2 + 4ef -4ef + 2efh + \frac12 h^3 \\
             &= -h^2 + 2efh + \frac12h^3 = \Omega h
         \end{align}
-        So that indeed \(\Omega\) commutes with every element of \(U(\mathfrak{sl}(2))\).
+        So that indeed \(\Omega\) commutes with every element of \(U(\mathfrak{sl}(2))\). To see that \(\Omega\) acts as a scalar, we use the basis for \(V(m)\) given in Humphreys 7.2 as \(v_0\) a maximal vector and \(v_j = \frac{1}{j!}f^j.v_0\). Humphreys lemma 7.2 establishes that \(h.v_j = (m-2j)v_j, f.v_j = (j+1)v_{j+1}\) and \(e.v_j = (m - j + 1)v_{j-1}\). Since \(\set{v_j}_j\) forms a basis, to check that \(\Omega\) acts by \(m(m+2)/2\) it suffices to check on \(v_j\) for arbitrary \(j\), we make use of these identities and compute the following:
+        \begin{align}
+            \Omega v_j &= -h.v_j + 2e.f.v_j + \frac12 h.h.v_j \\
+            &= (2j-m)v_j + 2(j+1)e.v_{j+1} + \frac12(m-2j)h.v_j  \\
+            &= (2j-m) + 2(j+1)(m-j)v_j + \frac12(m-2j)^2 v_j \\
+            &= \frac{(m-2j)^2 + 4(j+1)(m-j) + 2(2j-m)}{2} v_j \\
+            &= (m(m+2)/2) v_j
+        \end{align}
+        thus proven. Now notice that \(\operatorname{tr}(ef) = \operatorname{tr}(fe) = \operatorname{tr}(h\frac12 h)\) so that \(\set{f,e,\frac12 h}\) is the dual basis for \(\set{e,f,h}\) with respect to the trace form, so that \(\Omega\) is the sum of this basis pairwise product with their duals. Thus in the case of \(m = 1\), with \(V(m) = F^2\) we find that the action of \(\Omega\) is by definition the Casimir element of the standard representation for \(\mathfrak{sl}(2)\). In this case \(\Omega\) acts by the scalar \(1(1+2)/2 = 3/2\) which is precisely the scalar \(\dim L/\dim V = \dim \mathfrak{sl}(2)/\dim F^2 = 3/2\) in Humphreys 6.2 given by \(\operatorname{tr}(c)= \dim L\) and Schur's lemma applied to the Casimir element commuting with every representation. \qed
+
+        \textbf{(f)}
     \end{pb}
 \end{document}
