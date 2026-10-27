@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1793068204.55145 "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/Midterm/Midterm.tex" "Midterm.pdf" "Midterm" 1793068205.52808 0
-  "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/Midterm/Midterm.tex" 1793068204.35755 54901 cca50b0d2b86211866042ae638d96f00 ""
+["pdflatex"] 1793123817.41676 "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/Midterm/Midterm.tex" "Midterm.pdf" "Midterm" 1793123818.37468 0
+  "/Users/tighe/School_Work/UBC-2026/MATHCourses/MATH534/Midterm/Midterm.tex" 1793123817.23314 56059 2e8425117cd9829695139767c75535ac ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1246382020 1040 b84415f97d114011685943ade933dc71 ""
@@ -159,8 +159,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757546981 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Midterm.aux" 1793068205.46942 403 02e4567140548d4aba0fe7166e9eb9d1 "pdflatex"
-  "Midterm.tex" 1793068204.35755 54901 cca50b0d2b86211866042ae638d96f00 ""
+  "Midterm.aux" 1793123818.31787 403 02e4567140548d4aba0fe7166e9eb9d1 "pdflatex"
+  "Midterm.tex" 1793123817.23314 56059 2e8425117cd9829695139767c75535ac ""
   (generated)
   "Midterm.aux"
   "Midterm.log"

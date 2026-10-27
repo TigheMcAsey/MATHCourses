@@ -539,6 +539,12 @@
         \end{align}
         As desired.
 
-        Now suppose that \(V\) is a \(\mathfrak{sl}(2)\) module and \(v \in V\) satisfies \(hv = \lambda v\). \textcolor{red}{TODO: Show the universal property.}
+        Now suppose that \(V\) is a \(\mathfrak{sl}(2)\) module and \(v \in V\) satisfies \(hv = \lambda v\). Since this must be a map of \(\mathfrak{sl}(2)\) modules, any map of modules \(\varphi:v_0 \mapsto v\) must satisfy \(\varphi(s.v_0) = s.\varphi(v_0)\) when \(s \in U(\mathfrak{sl}(2))\), in particular the value on all basis elements is specified taking \(s = f^j\) this proves uniqueness assuming such a map exists. Now to show existence, we define \(\varphi(v_{j+1}) = f.\varphi(v_j)\) and extending \(F\)-linearly, and we will be done so long as \(\varphi(s.v_j) = s. \varphi(v_j)\) agrees with this construction for \(s \in \set{e,h}\) (we only need the monomials of degree 1 due to the identities previously proven). This is clearly the case when \(j = 0\) be definition of \(v\), now assume this holds for \(j-1\) and we will verify it for \(j\):
+        \begin{align}
+            e.\varphi(v_j) &= ef. \varphi(v_{j-1}) = ([e,f] + fe) \varphi(v_{j-1}) = (h + fe) \varphi(v_{j-1})\\
+            &\overset{\text{Induction hyp.}}{=} (-2j + 2 + \lambda) \varphi(v_{j-1}) + (j-1)(\lambda-j+2)\varphi(v_{j-1}) \\
+            &= j(\lambda-j+1) \varphi(v_{j-1}) = \varphi(e.v_j) \\
+            h.\varphi(v_j) &= hf.\varphi(v_{j-1}) = ([h,f] + fh)\varphi(v_{j-1}) = (-2f + fh)\varphi(v_{j-1})
+        \end{align}
     \end{pb}
 \end{document}
