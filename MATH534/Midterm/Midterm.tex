@@ -376,11 +376,20 @@
             \end{align}
             Which is of type B2. \qed
 
-            \emph{Proof of Claim 1.} \textcolor{red}{TODO}
+            \emph{Proof of Claim 1.} Let \(h,h' \in H\), then we can write \(h = \operatorname{Diag}(a,b,-a,-b), h' = \operatorname{Diag}(c,d,-c,-d)\) then \(\operatorname{tr}(hh') = 2(ac + bd)\), now for \(\alpha \in \Phi\) on \(L_\alpha\) we know that \(\operatorname{ad}_h \operatorname{ad}_{h'}\) acts via the scalar \(\alpha(h) \alpha'(h)\) and on \(H\) it acts via zero since \(H\) is toral hence abelian. Taking the basis given by the root decomposition gives us
+            \begin{align}
+                \kappa(h,h') = \sum_{\alpha \in \Phi} \alpha(h) \alpha(h')
+            \end{align}
+            Which we can compute using our description in subpart 2
+            \begin{align}
+                \kappa(h,h') &= \sum_{\alpha \in \Phi} \alpha(h) \alpha(h') \\ 
+                &= 2[(a-b)(c-d) + 4bd + (a + b)(c+d) + 4ac) = 12(ac + bd) = 6 \operatorname{tr}(hh')
+            \end{align}
+            \qed
 
             \emph{Proof of Claim 2.} Using claim 1, this is a simple calculation using ad-invariance of the killing form: Let \(h \in H\) with \(\alpha(h) \neq 0\)
             \begin{align}
-                \kappa(x_\alpha,y_\alpha) &= \alpha(h)^{-1}\kappa(hx_\alpha,y_\alpha) \label{root decomp} \\
+                \kappa(x_\alpha,y_\alpha) &= \alpha(h)^{-1}\kappa([h,x_\alpha],y_\alpha) \label{root decomp} \\
                 &\overset{\operatorname{ad} \text{-invariance}}{=} \alpha(h)^{-1}\kappa(h,[x_\alpha,y_\alpha]) \\
                 &\overset{\text{Claim 1}}{=} \alpha(h)^{-1}6 \operatorname{tr}(h[x_\alpha,y_\alpha]) \label{root sum}
             \end{align}
